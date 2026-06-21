@@ -276,7 +276,7 @@ const AdminDashboard = () => {
   const getRiskBadge = (level: string) => {
     const colors: any = {
       Low: "bg-green-100 text-green-700 hover:bg-green-100/80",
-      Medium: "bg-amber-100 text-amber-700 hover:bg-amber-100/80",
+      Medium: "bg-emerald-100 text-emerald-700 hover:bg-emerald-100/80",
       High: "bg-red-100 text-red-700 hover:bg-red-100/80",
       Unknown: "bg-gray-100 text-gray-600 hover:bg-gray-100/80"
     };
@@ -290,7 +290,7 @@ const AdminDashboard = () => {
   const getStatusBadge = (status: string) => {
     const styles: any = {
       approved: "bg-green-100 text-green-700 border-green-200",
-      pending: "bg-amber-100 text-amber-700 border-amber-200",
+      pending: "bg-emerald-100 text-emerald-700 border-emerald-200",
       rejected: "bg-red-100 text-red-700 border-red-200",
     };
     return (
@@ -344,9 +344,9 @@ const AdminDashboard = () => {
             title="Fraud Alerts" 
             value={stats?.fraud_alerts || 0} 
             subtitle="Flagged for verification"
-            icon={<Shield className="w-5 h-5 text-amber-500" />}
-            iconBg="bg-amber-100"
-            valueColor="text-amber-500"
+            icon={<Shield className="w-5 h-5 text-emerald-500" />}
+            iconBg="bg-emerald-100"
+            valueColor="text-emerald-500"
           />
           <StatCard 
             title="Avg Risk Score" 
@@ -477,7 +477,7 @@ const AdminDashboard = () => {
                         </Badge>
                       </TableCell>
                       <TableCell>
-                        <Badge variant="secondary" className="bg-amber-100 text-amber-800 hover:bg-amber-100">
+                        <Badge variant="secondary" className="bg-emerald-100 text-emerald-800 hover:bg-emerald-100">
                             {Math.round(claim.validation_score)}%
                         </Badge>
                       </TableCell>
@@ -500,8 +500,10 @@ const AdminDashboard = () => {
         </div>
 
         {/* ------------------------------------------------------------------ */}
-        {/* POLICY RULES — Dynamic RAG Knowledge Base                          */}
+        {/* POLICY RULES & OVERLAP CHECKER (HIDDEN)                            */}
         {/* ------------------------------------------------------------------ */}
+        {false && (
+          <>
         <div className="glass-card p-6 mt-8">
           <div className="flex items-center gap-3 mb-2">
             <BookOpen className="w-5 h-5 text-primary" />
@@ -511,7 +513,7 @@ const AdminDashboard = () => {
             </Badge>
           </div>
           <p className="text-sm text-muted-foreground mb-6">
-            Upload a OPD policy PDF — Gemini extracts coverage rules that the AI claim checker will use immediately.
+            Upload a OPD policy PDF â€” Gemini extracts coverage rules that the AI claim checker will use immediately.
             DB rules override the static JSON file for matching policy types.
           </p>
 
@@ -563,7 +565,7 @@ const AdminDashboard = () => {
 
             {uploading && (
               <p className="text-xs text-muted-foreground italic">
-                Gemini is reading the PDF — this may take 15–30 seconds.
+                Gemini is reading the PDF â€” this may take 15â€“30 seconds.
               </p>
             )}
           </div>
@@ -578,7 +580,7 @@ const AdminDashboard = () => {
             <div className="text-center py-10 text-muted-foreground">
               <BookOpen className="w-10 h-10 mx-auto mb-3 opacity-20" />
               <p className="font-medium">No policy documents uploaded yet.</p>
-              <p className="text-xs mt-1">Upload a OPD policy PDF above — the static JSON rules remain active as a fallback.</p>
+              <p className="text-xs mt-1">Upload a OPD policy PDF above â€” the static JSON rules remain active as a fallback.</p>
             </div>
           ) : (
             <div className="overflow-x-auto">
@@ -598,17 +600,17 @@ const AdminDashboard = () => {
                 <TableBody>
                   {policyDocs.map((doc) => (
                     <TableRow key={doc.id} className="hover:bg-muted/50">
-                      <TableCell className="font-mono text-sm">{doc.policy_number || '—'}</TableCell>
+                      <TableCell className="font-mono text-sm">{doc.policy_number || 'â€”'}</TableCell>
                       <TableCell>
-                        <span className="font-medium">{doc.holder_name || '—'}</span>
+                        <span className="font-medium">{doc.holder_name || 'â€”'}</span>
                       </TableCell>
                       <TableCell>
                         <Badge variant="outline" className="text-xs">{doc.policy_type}</Badge>
                       </TableCell>
                       <TableCell className="text-xs text-muted-foreground">
                         {doc.cover_start && doc.cover_end
-                          ? `${doc.cover_start} → ${doc.cover_end}`
-                          : '—'}
+                          ? `${doc.cover_start} â†’ ${doc.cover_end}`
+                          : 'â€”'}
                       </TableCell>
                       <TableCell>
                         {doc.extraction_status === 'success' && (
@@ -622,7 +624,7 @@ const AdminDashboard = () => {
                           </Badge>
                         )}
                         {(doc.extraction_status === 'processing' || doc.extraction_status === 'pending') && (
-                          <Badge variant="outline" className="bg-amber-50 text-amber-700 border-amber-200 gap-1">
+                          <Badge variant="outline" className="bg-emerald-50 text-emerald-700 border-emerald-200 gap-1">
                             <Clock className="w-3 h-3" /> {doc.extraction_status}
                           </Badge>
                         )}
@@ -634,7 +636,7 @@ const AdminDashboard = () => {
                       <TableCell className="text-center">
                         <button
                           onClick={() => togglePolicyDoc(doc.id)}
-                          title={doc.is_active ? 'Active — click to deactivate' : 'Inactive — click to activate'}
+                          title={doc.is_active ? 'Active â€” click to deactivate' : 'Inactive â€” click to activate'}
                           className={`relative inline-flex h-6 w-10 items-center rounded-full transition-colors ${
                             doc.is_active ? 'bg-green-500' : 'bg-gray-300'
                           }`}
@@ -670,7 +672,7 @@ const AdminDashboard = () => {
         <div className="glass-card p-6 mt-6">
           <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
             <div className="flex items-center gap-3">
-              <GitMerge className="w-5 h-5 text-amber-500" />
+              <GitMerge className="w-5 h-5 text-emerald-500" />
               <div>
                 <h2 className="text-xl font-bold text-foreground">Rule Overlap Checker</h2>
                 <p className="text-sm text-muted-foreground">
@@ -707,7 +709,7 @@ const AdminDashboard = () => {
                 </Badge>
                 {overlapReport.overlap_count === 0 ? (
                   <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200 gap-1">
-                    <CheckCircle className="w-3 h-3" /> No conflicts found — rules are clean
+                    <CheckCircle className="w-3 h-3" /> No conflicts found â€” rules are clean
                   </Badge>
                 ) : (
                   <>
@@ -718,7 +720,7 @@ const AdminDashboard = () => {
                       </Badge>
                     )}
                     {overlapReport.has_warnings && (
-                      <Badge variant="outline" className="bg-amber-50 text-amber-700 border-amber-200 gap-1">
+                      <Badge variant="outline" className="bg-emerald-50 text-emerald-700 border-emerald-200 gap-1">
                         <AlertTriangle className="w-3 h-3" />
                         {overlapReport.overlaps.filter(o => o.severity === 'warning').length} warning(s)
                       </Badge>
@@ -734,18 +736,18 @@ const AdminDashboard = () => {
                   className={`rounded-xl border p-4 ${
                     o.severity === 'error'
                       ? 'bg-red-50 border-red-200'
-                      : 'bg-amber-50 border-amber-200'
+                      : 'bg-emerald-50 border-emerald-200'
                   }`}
                 >
                   <div className="flex items-start gap-3">
                     {o.severity === 'error'
                       ? <XCircle className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
-                      : <AlertTriangle className="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" />
+                      : <AlertTriangle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
                     }
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap items-center gap-2 mb-1">
                         <span className={`text-xs font-semibold uppercase tracking-wide ${
-                          o.severity === 'error' ? 'text-red-600' : 'text-amber-600'
+                          o.severity === 'error' ? 'text-red-600' : 'text-emerald-600'
                         }`}>
                           {o.type.replace(/_/g, ' ')}
                         </span>
@@ -754,7 +756,7 @@ const AdminDashboard = () => {
                           <Badge variant="secondary" className="text-xs py-0">{o.claim_key}</Badge>
                         )}
                       </div>
-                      <p className={`text-sm ${o.severity === 'error' ? 'text-red-800' : 'text-amber-800'}`}>
+                      <p className={`text-sm ${o.severity === 'error' ? 'text-red-800' : 'text-emerald-800'}`}>
                         {o.message}
                       </p>
                       <p className="text-xs mt-1 opacity-70">
@@ -767,6 +769,8 @@ const AdminDashboard = () => {
             </div>
           )}
         </div>
+          </>
+        )}
 
       </main>
     </div>
