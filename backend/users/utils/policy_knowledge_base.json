@@ -1,0 +1,290 @@
+{
+  "policies": [
+    {
+      "policy_number": "JSV2025-1216",
+      "holder_name": "TechCorp Solutions (Pvt) Ltd",
+      "address": "N/A",
+      "period_of_cover": {
+        "start": "2025-07-01",
+        "end": "2026-06-30"
+      },
+      "premium": 15000000,
+      "benefits": {
+        "main_life_cover": {
+          "option1": 1500000,
+          "option2": 1000000
+        },
+        "critical_illness_cover": {
+          "option1_first_event": 2000000,
+          "option1_max_per_annum": 10000000,
+          "spouse_cover": 1000000,
+          "description": "Covered for 35 critical illnesses including cancer, heart attack, stroke, kidney failure"
+        },
+        "hospitalization_indoor": {
+          "option1": 300000,
+          "option2": 200000,
+          "birth_of_twins": 20000,
+          "government_hospital_per_day": 5000
+        },
+        "outpatient_opd": {
+          "description": "Not specified in schedule - check individual scheme"
+        }
+      },
+      "member_categories": {
+        "note": "100% employee participation required"
+      },
+      "value_added_services": [
+        "Flash App discounts at Nawaloka, Lanka, Ceylon Hospitals",
+        "Health screenings and medical camps",
+        "Cashless facility at empaneled hospitals"
+      ]
+    },
+    {
+      "policy_number": "JSV2025-1525",
+      "holder_name": "Global Logistics Corp",
+      "address": "123 Business Avenue, Colombo 01",
+      "period_of_cover": {
+        "start": "2025-10-30",
+        "end": "2026-10-29"
+      },
+      "premium": 500000,
+      "benefits": {
+        "main_life_cover": {
+          "basic_sum_assured": 1500000
+        },
+        "critical_illness_cover": {
+          "amount": 1000000,
+          "conditions": 39
+        },
+        "hospitalization_indoor": {
+          "annual_limit": 300000,
+          "max_per_event": 300000,
+          "ambulance_charges": 10000,
+          "birth_of_twins": 20000,
+          "government_hospital_per_day": 5000,
+          "includes_dental_indoor": true
+        },
+        "outpatient_opd": {
+          "annual_limit": 20500,
+          "spectacles_employee_only": 15000,
+          "spectacles_note": "Eye specialist prescription required, once in 2 years, no sunglasses/contact lenses/computer glasses"
+        }
+      },
+      "member_categories": {
+        "individual": {
+          "count": 1,
+          "per_unit_premium": 47430
+        },
+        "family_or_with_parents": {
+          "count": 7,
+          "per_unit_premium": 58393
+        }
+      },
+      "waiting_periods": {
+        "sickness": "30 days",
+        "childbirth": "10 months"
+      },
+      "exclusions": [
+        "Sunglasses, contact lenses, computer glasses, reading glasses",
+        "Non-medical items (food, toiletries, sanitary items)",
+        "Drug/alcohol addiction treatment",
+        "COVID-19 vaccines",
+        "Mobile clinic claims"
+      ]
+    },
+    {
+      "policy_number": "JSV2023-2476",
+      "holder_name": "Smart Apparels (Pvt) Ltd",
+      "address": "Zone A, Export Processing Zone, Katunayake",
+      "period_of_cover": {
+        "start": "2025-01-01",
+        "end": "2025-12-31"
+      },
+      "premium": 25000000,
+      "benefits": {
+        "hospitalization_indoor": {
+          "scheme1_dgm_and_above": 275000,
+          "scheme2_asst_mgr_to_mgr": 250000,
+          "scheme3_exec_to_sr_exec": 225000,
+          "scheme4_staff": 175000,
+          "specialist_cover_indoor": 50000,
+          "ambulance_per_event": 5000,
+          "birth_of_twins": 10000,
+          "government_hospital_per_day": 2000
+        },
+        "outpatient_opd": {
+          "all_schemes": 15000,
+          "includes": [
+            "Ayurvedic hospitals",
+            "Pre and post hospitalization (30 days)",
+            "Day care surgeries",
+            "MRI/CT Scan/Endoscopy",
+            "Cataract surgery",
+            "Laser/Lasik treatment",
+            "Childbirth coverage",
+            "Psychologist/Psychiatric treatments"
+          ]
+        },
+        "spectacles_employee_only": {
+          "amount": 30000,
+          "conditions": "Prescription from eye specialist, once in 2 years, no sunglasses/contact lenses/computer glasses"
+        }
+      },
+      "member_categories": {
+        "employee_only": true
+      },
+      "waiting_periods": {
+        "sickness": "30 days",
+        "childbirth": "10 months"
+      },
+      "exclusions": [
+        "Sunglasses, contact lenses, computer glasses",
+        "Non-medical items",
+        "Drug/alcohol addiction",
+        "Pre-existing conditions before waiting period"
+      ]
+    },
+    {
+      "policy_number": "JSV2025-1176",
+      "holder_name": "Alpha Manufacturing Ltd",
+      "address": "Block C, Industrial Estate, Biyagama",
+      "period_of_cover": {
+        "start": "2025-07-01",
+        "end": "2026-06-30"
+      },
+      "premium": 12000000,
+      "benefits": {
+        "basic_sum_assured": {
+          "scheme01": 1000000,
+          "scheme02": 750000,
+          "scheme03": 500000,
+          "scheme04": 275000,
+          "scheme05": 230000,
+          "scheme06": 160000
+        },
+        "hospitalization_indoor": {
+          "scheme01": 1000000,
+          "scheme02": 750000,
+          "scheme03": 500000,
+          "scheme04": 275000,
+          "scheme05": 230000,
+          "scheme06": 160000,
+          "ambulance_per_event": 15000,
+          "birth_of_twins": 20000,
+          "government_hospital_per_day": 5000
+        },
+        "outpatient_opd": {
+          "scheme01": 77000,
+          "scheme02": 38000,
+          "scheme03": 27000,
+          "scheme04": 19000,
+          "scheme05": 14000,
+          "scheme06": 8000
+        },
+        "dental_employee_only": 25000,
+        "spectacles_employee_only": 30000
+      },
+      "waiting_periods": {
+        "sickness": "30 days",
+        "childbirth": "10 months"
+      },
+      "exclusions": [
+        "Sunglasses, contact lenses, computer glasses",
+        "Non-medical items",
+        "Drug/alcohol addiction",
+        "COVID-19 vaccines"
+      ]
+    }
+  ],
+  "policy_types": {
+    "Individual Health": {
+      "description": "Individual health insurance covering the main policyholder only (self).",
+      "eligible_members": ["Self only — no family/dependents covered unless upgraded to Family Floater"],
+      "claim_types_covered": {
+        "opd": {"covered": true, "note": "Outpatient consultations, medicines, lab tests"},
+        "dental": {"covered": true, "note": "Basic dental: fillings, extractions, scaling only"},
+        "spectacle": {"covered": true, "note": "Once every 2 years, prescription from registered eye specialist required, no sunglasses or contact lenses"},
+        "indoor": {"covered": true, "note": "Hospitalization covered up to sum insured"}
+      },
+      "waiting_periods": {"sickness": "30 days from policy commencement", "childbirth": "10 months"},
+      "exclusions": ["Sunglasses, contact lenses, computer glasses", "Non-medical items", "Drug/alcohol addiction", "Pre-existing conditions within waiting period"],
+      "self_only_note": "Dependents (spouse, children, parents) are NOT covered under individual policy. Claims from family members should be rejected unless they have their own individual policy.",
+      "renewal": "Annual renewal — limits reset each year"
+    },
+    "Family Floater": {
+      "description": "Single shared sum insured covering the entire family under one policy.",
+      "eligible_members": ["Self (primary member)", "Spouse", "Dependent children up to age 25", "Parents (if opted in)"],
+      "claim_types_covered": {
+        "opd": {"covered": true, "shared": true, "note": "Shared OPD limit across all family members"},
+        "dental": {"covered": true, "note": "All covered family members, once per year per member"},
+        "spectacle": {"covered": true, "note": "Main member and spouse only, once every 2 years, eye specialist prescription required"},
+        "indoor": {"covered": true, "shared": true, "note": "Hospitalization — shared sum insured for the entire family"}
+      },
+      "waiting_periods": {"sickness": "30 days", "childbirth": "10 months"},
+      "exclusions": ["Sunglasses, contact lenses, computer glasses", "Non-medical items", "Drug/alcohol addiction"],
+      "shared_limit_note": "Once the shared sum insured is exhausted by any family member, no further claims accepted until policy renewal.",
+      "dependent_eligibility": "Dependent children are covered until age 25 (or marriage, whichever earlier). Parents must be opted in at inception."
+    },
+    "Corporate": {
+      "description": "Group corporate health policy for company employees under employer scheme.",
+      "eligible_members": ["Employee (primary member)", "Spouse (if employer has opted for family coverage)", "Dependent children (if employer has opted)"],
+      "claim_types_covered": {
+        "opd": {"covered": true, "note": "Employee OPD covered; family OPD only if employer opted for family coverage"},
+        "dental": {"covered": true, "note": "Employee only by default unless family dental opted by employer"},
+        "spectacle": {"covered": true, "note": "Employee only, once every 2 years, original prescription required"},
+        "indoor": {"covered": true, "note": "Employee and opted-in family members covered for hospitalization"}
+      },
+      "waiting_periods": {"sickness": "30 days from inclusion date", "childbirth": "10 months"},
+      "exclusions": ["Mobile clinic charges", "Non-medical items", "Sunglasses/contact lenses", "Drug/alcohol addiction"],
+      "scheme_note": "Benefits vary by employee grade/scheme (e.g., DGM and above vs staff grade). Check employer scheme schedule.",
+      "participation": "100% employee participation required for group policy"
+    },
+    "Senior Citizen": {
+      "description": "Health insurance for senior citizens aged 60-75 years.",
+      "eligible_members": ["Self (main member aged 60-75)", "Spouse (if within age range)"],
+      "claim_types_covered": {
+        "opd": {"covered": true, "note": "OPD covered with standard exclusions"},
+        "dental": {"covered": false, "note": "Dental not typically covered under senior citizen policies"},
+        "spectacle": {"covered": false, "note": "Spectacles not typically covered"},
+        "indoor": {"covered": true, "note": "Hospitalization covered — pre-existing conditions may apply extended waiting period"}
+      },
+      "waiting_periods": {"sickness": "60 days (longer than standard)", "pre_existing_conditions": "2 years", "childbirth": "Not applicable"},
+      "exclusions": ["Drug/alcohol addiction", "Self-inflicted injuries", "Non-medical items", "Pre-existing conditions within 2-year exclusion period"],
+      "age_note": "Entry age 60-75. Renewal permissible up to age 80 with continuous coverage. Claims from persons under 60 should not be under this policy type."
+    }
+  },
+  "general_conditions": {
+    "source": "OPD Insurance PLC Group Policy",
+    "insurer": "OPD Insurance PLC",
+    "claim_hotline": "0112-636636",
+    "eligibility": {
+      "min_age": 18,
+      "max_age": 65,
+      "employment": "Full-time employees only",
+      "participation": "100% of eligible employees must be included"
+    },
+    "waiting_periods": {
+      "sickness": "30 days from date of commencement or inclusion date",
+      "childbirth": "10 months from date of commencement or inclusion date"
+    },
+    "claim_requirements": {
+      "indoor": "Original bills, Discharge summary, Doctor referral",
+      "opd": "Original bills, Doctor prescription, Investigation reports",
+      "dental": "Original bills, BDS/DDS/DMD qualified dentist required",
+      "spectacles": "Original prescription from registered eye specialist, once in 2 years"
+    },
+    "excluded_items": [
+      "Food, toiletries, sanitary items, cosmetics, diapers",
+      "Sunglasses, contact lenses, computer glasses, reading glasses",
+      "Drug addiction and alcohol addiction treatment",
+      "COVID-19 vaccines and boosters",
+      "Non-medical items in hospital bills",
+      "Mobile clinic charges",
+      "Pre-existing conditions before waiting period completes"
+    ],
+    "covered_hospitals": "Private Medical Institutions registered with PHSRC (Private Hospitals Service Regulatory Commission)",
+    "cashless_facility": "Available at empaneled hospitals only for indoor admissions",
+    "claim_intimation": "All hospital admissions must be intimated within 24 hours to OPD Insurance (0112-636636)",
+    "reimbursement": "Original bills required for reimbursement claims"
+  }
+}

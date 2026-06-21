@@ -1,0 +1,658 @@
+import { createContext, useContext, useState, ReactNode } from "react";
+
+export type Language = "en" | "si" | "ta";
+
+export const translations = {
+  en: {
+    // Navbar & Common
+    logoMain: "OPD",
+    logoSub: "Smart Claims System",
+    logout: "Logout",
+
+    // Auth
+    login: "Login",
+    signup: "Sign Up",
+    email: "Email",
+    enterEmail: "Enter your email",
+    fullName: "Full Name",
+    enterFullName: "Enter your full name",
+    nic: "NIC Number",
+    enterNic: "Enter your NIC (e.g., 123456789V)",
+    createPassword: "Create a password",
+    createAccount: "Create Account",
+    loggingIn: "Logging in...",
+    creatingAccount: "Creating account...",
+    authTerms: "By continuing, you agree to our Terms of Service and Privacy Policy",
+    authInvalidCredentials: "Invalid email or password",
+    authEmailExists: "This email is already registered. Please login instead.",
+    authLoginSuccess: "Login successful!",
+    authSignupSuccess: "Account created successfully!",
+    branchLogin: "Branch Portal Login",
+    branchLoginSubtitle: "For branch staff only",
+    customerLogin: "Customer Portal Login",
+    customerLoginSubtitle: "Access your insurance claims",
+
+    // Hero Section
+    heroTitle: "OPD Smart Claims",
+    heroSub: "Submit and track your claims with AI-powered document verification. Fast, secure, and simple.",
+    btnSubmitClaim: "Submit New Claim",
+    btnDigitalPortal: "Digital Portal",
+
+    // Portal Selection
+    choosePortal: "Choose Your Portal",
+    branchPortalTitle: "Branch Portal",
+    branchPortalSubtitle: "For branch staff and walk-in customers",
+    branchPortalDesc: "Submit claims at your nearest branch with assisted document verification",
+    btnAccessPortal: "Access Portal",
+    digitalPortalTitle: "Digital Portal",
+    digitalPortalSubtitle: "For mobile and online submissions",
+    digitalPortalDesc: "Submit and track claims anytime, anywhere through our digital platform",
+    btnLoginNow: "Login Now",
+    adminTitle: "Admin View",
+    adminSubtitle: "For administrators and staff",
+    adminDesc: "Review and manage all claims with comprehensive analytics and reporting",
+    btnAdminLogin: "Admin Login",
+    adminLogin: "Admin Login",
+    adminLoginSubtitle: "Secure access for administrators only",
+    username: "Username",
+    enterUsername: "Enter admin username",
+    password: "Password",
+    enterPassword: "Enter password",
+
+    // Stats
+    statAI: "AI-Powered Verification",
+    stat247: "Available Anytime",
+    statLang: "Languages Supported",
+    statFast: "Quick Processing",
+
+    // Footer
+    footerDesc: "Making insurance claims simple, fast, and transparent with AI-powered verification.",
+    quickLinks: "Quick Links",
+    linkSubmitOPD: "Submit OPD Claim",
+    linkTrackStatus: "Track Claim Status",
+    linkDigitalPortal: "Digital Portal",
+    contactUs: "Contact Us",
+    copyright: "© 2025 OPD Insurance PLC. All rights reserved.",
+
+    // Branch Portal
+    customerPortalBranch: "Customer Portal - Branch",
+    submitWithAI: "Submit your claim with AI-powered verification",
+    
+    // Steps
+    stepLanguage: "Language",
+    stepVerify: "Verify",
+    stepDetails: "Details",
+    stepUpload: "Upload",
+    stepComplete: "Complete",
+
+    // Step 0: Language
+    selectLanguage: "Select Language",
+    selectLanguageDesc: "Choose your preferred language",
+    langEnglish: "English",
+    langSinhala: "සිංහල (Sinhala)",
+    langTamil: "தமிழ் (Tamil)",
+
+    // Step 1: Verify
+    verifyPolicy: "Verify Policy",
+    verifyPolicyDesc: "Enter your NIC or Policy Number to verify",
+    labelNICPolicy: "NIC or Policy Number",
+    placeholderNICPolicy: "Enter NIC (e.g., 123456789V) or Policy Number",
+    btnBack: "Back",
+    btnContinue: "Continue",
+
+    // Step 2: Details
+    claimDetails: "Claim Details",
+    claimDetailsDesc: "Provide your claim information",
+    labelClaimType: "Claim Type",
+    placeholderClaimType: "Select type of claim",
+    claimTypeOPD: "OPD (Out-Patient)",
+    claimTypeSpectacles: "Spectacles",
+    claimTypeDental: "Dental",
+    labelRelationship: "Relationship",
+    placeholderRelationship: "Select relationship",
+    relationSelf: "Self",
+    relationSpouse: "Spouse",
+    relationChild: "Child",
+    relationParent: "Parent",
+    labelBankAccount: "Bank Account Number",
+    placeholderBankAccount: "1234567890 (BOC)",
+
+    // Step 3: Upload
+    uploadDocuments: "Upload Documents",
+    uploadDocumentsDesc: "Upload your claim documents for verification",
+    dragDropFiles: "Drag & drop files or Browse",
+    supportedFormats: "Supports PDF, JPG, PNG",
+    btnSubmitClaim2: "Submit Claim",
+
+    // Step 4: Success
+    claimSubmitted: "Claim Submitted Successfully!",
+    claimReference: "Claim Reference Number:",
+    claimReviewMsg: "We will review your claim and notify you via SMS within 24 hours.",
+    btnSubmitAnother: "Submit Another Claim",
+
+    // Admin Dashboard
+    adminDashboard: "Admin Dashboard",
+    manageAllClaims: "Manage and review all claims",
+    totalClaims: "Total Claims",
+    highRisk: "High Risk",
+    fraudAlerts: "Fraud Alerts",
+    avgRiskScore: "Avg Risk Score",
+    fromLastMonth: "+12% from last month",
+    requireReview: "Require immediate review",
+    flaggedVerification: "Flagged for verification",
+    lowRiskOverall: "Low risk overall",
+    ocrAccuracy: "OCR Accuracy",
+    fraudDetection: "Fraud Detection",
+    processingSpeed: "Processing Speed",
+    allClaims: "All Claims",
+    reviewManageClaims: "Review and manage submitted claims",
+    searchPlaceholder: "Search by Claim ID, Customer, or NIC",
+    allStatus: "All Status",
+    approved: "Approved",
+    processing: "Processing",
+    rejected: "Rejected",
+    manualReview: "Manual Review",
+    claimId: "Claim ID",
+    customer: "Customer",
+    type: "Type",
+    amount: "Amount",
+    riskScore: "Risk Score",
+    fraudCheck: "Fraud Check",
+    ocr: "OCR",
+    status: "Status",
+    action: "Action",
+    clean: "Clean",
+    flagged: "Flagged",
+    low: "Low",
+    medium: "Medium",
+    high: "High",
+
+    // Claim Review
+    claimReview: "Claim Review",
+    reference: "Reference",
+    pendingReview: "Pending Review",
+    claimInformation: "Claim Information",
+    patientName: "Patient Name",
+    policyNumber: "Policy Number",
+    submitted: "Submitted",
+    claimAmount: "Claim Amount",
+    medicalProvider: "Medical Provider",
+    diagnosis: "Diagnosis",
+    treatmentDuration: "Treatment Duration",
+    aiAnalysisVerification: "AI Analysis & Verification",
+    aiAnalysisDesc: "Automated checks and validations performed by the AI system",
+    overview: "Overview",
+    documents: "Documents",
+    policy: "Policy",
+    fraud: "Fraud",
+    matching: "Matching",
+    overallScore: "Overall Score",
+    highConfidence: "High Confidence",
+    allVerified: "All Verified",
+    fraudRisk: "Fraud Risk",
+    riskScoreLabel: "Risk Score",
+    aiProcessingSummary: "AI Processing Summary",
+    assessorNotes: "Assessor Notes",
+    addReviewNotes: "Add your review notes",
+    enterAssessmentNotes: "Enter your assessment notes here...",
+    quickActions: "Quick Actions",
+    approveClaim: "Approve Claim",
+    rejectClaim: "Reject Claim",
+    requestMoreInfo: "Request More Info",
+    submittedDocuments: "Submitted Documents",
+    documentsUploaded: "documents uploaded",
+    claimApprovedSuccess: "Claim approved successfully!",
+    claimRejectedSuccess: "Claim rejected successfully!",
+    moreInfoRequested: "More information requested!",
+
+    // Digital Portal
+    digitalPortal: "Digital Portal",
+    manageClaimsOnline: "Manage your claims online",
+    myClaims: "My Claims",
+    newClaim: "New Claim",
+  },
+  si: {
+    // Navbar & Common
+    logoMain: "ජනශක්ති",
+    logoSub: "ස්මාර්ට් හිමිකම් පද්ධතිය",
+    logout: "පිටවීම",
+
+    // Auth
+    login: "පිවිසෙන්න",
+    signup: "ලියාපදිංචි වන්න",
+    email: "ඊමේල්",
+    enterEmail: "ඔබගේ ඊමේල් ඇතුළත් කරන්න",
+    fullName: "සම්පූර්ණ නම",
+    enterFullName: "ඔබගේ සම්පූර්ණ නම ඇතුළත් කරන්න",
+    nic: "ජාතික හැඳුනුම්පත් අංකය",
+    enterNic: "ඔබගේ ජා.හැ.අ. ඇතුළත් කරන්න (උදා: 123456789V)",
+    createPassword: "මුරපදයක් සාදන්න",
+    createAccount: "ගිණුමක් සාදන්න",
+    loggingIn: "පිවිසෙමින්...",
+    creatingAccount: "ගිණුම සාදමින්...",
+    authTerms: "ඉදිරියට යාමෙන්, ඔබ අපගේ සේවා නියමයන් සහ රහස්‍යතා ප්‍රතිපත්තියට එකඟ වේ",
+    authInvalidCredentials: "වලංගු නොවන ඊමේල් හෝ මුරපදය",
+    authEmailExists: "මෙම ඊමේල් දැනටමත් ලියාපදිංචි වී ඇත. කරුණාකර පිවිසෙන්න.",
+    authLoginSuccess: "සාර්ථකව පිවිසුණි!",
+    authSignupSuccess: "ගිණුම සාර්ථකව සාදන ලදී!",
+    branchLogin: "ශාඛා පෝර්ටල් පිවිසුම",
+    branchLoginSubtitle: "ශාඛා කාර්ය මණ්ඩලය සඳහා පමණි",
+    customerLogin: "පාරිභෝගික පෝර්ටල් පිවිසුම",
+    customerLoginSubtitle: "ඔබගේ රක්ෂණ හිමිකම් වෙත ප්‍රවේශ වන්න",
+
+    // Hero Section
+    heroTitle: "ජනශක්ති ස්මාර්ට් හිමිකම්",
+    heroSub: "AI බලයෙන් ලේඛන සත්‍යාපනය සමඟ ඔබගේ හිමිකම් ඉදිරිපත් කර නිරීක්ෂණය කරන්න. වේගවත්, ආරක්ෂිත සහ සරල.",
+    btnSubmitClaim: "නව හිමිකම් ඉදිරිපත් කරන්න",
+    btnDigitalPortal: "ඩිජිටල් පෝර්ටලය",
+
+    // Portal Selection
+    choosePortal: "ඔබේ පෝර්ටලය තෝරන්න",
+    branchPortalTitle: "ශාඛා පෝර්ටලය",
+    branchPortalSubtitle: "ශාඛා කාර්ය මණ්ඩලය සහ පාරිභෝගිකයින් සඳහා",
+    branchPortalDesc: "ආධාරකරු ලේඛන සත්‍යාපනය සමඟ ඔබගේ ආසන්නතම ශාඛාවේ හිමිකම් ඉදිරිපත් කරන්න",
+    btnAccessPortal: "පෝර්ටලයට පිවිසෙන්න",
+    digitalPortalTitle: "ඩිජිටල් පෝර්ටලය",
+    digitalPortalSubtitle: "ජංගම සහ මාර්ගගත ඉදිරිපත් කිරීම් සඳහා",
+    digitalPortalDesc: "ඕනෑම වේලාවක, ඕනෑම තැනක ඩිජිටල් වේදිකාව හරහා හිමිකම් ඉදිරිපත් කර නිරීක්ෂණය කරන්න",
+    btnLoginNow: "දැන් පිවිසෙන්න",
+    adminTitle: "පරිපාලක දසුන",
+    adminSubtitle: "පරිපාලකයින් සහ කාර්ය මණ්ඩලය සඳහා",
+    adminDesc: "සවිස්තරාත්මක විශ්ලේෂණ සහ වාර්තා සමඟ සියලුම හිමිකම් සමාලෝචනය කර කළමනාකරණය කරන්න",
+    btnAdminLogin: "පරිපාලක පිවිසුම",
+    adminLogin: "පරිපාලක පිවිසුම",
+    adminLoginSubtitle: "පරිපාලකයින්ට පමණක් ආරක්ෂිත ප්‍රවේශය",
+    username: "පරිශීලක නාමය",
+    enterUsername: "පරිපාලක පරිශීලක නාමය ඇතුළත් කරන්න",
+    password: "මුරපදය",
+    enterPassword: "මුරපදය ඇතුළත් කරන්න",
+
+    // Stats
+    statAI: "AI බලයෙන් සත්‍යාපනය",
+    stat247: "ඕනෑම වේලාවක ලබා ගත හැක",
+    statLang: "භාෂා සහාය",
+    statFast: "වේගවත් සැකසීම",
+
+    // Footer
+    footerDesc: "AI බලයෙන් සත්‍යාපනය සමඟ රක්ෂණ හිමිකම් සරල, වේගවත් සහ විනිවිද පෙනෙන බවට පත් කිරීම.",
+    quickLinks: "ඉක්මන් සබැඳි",
+    linkSubmitOPD: "OPD හිමිකම් ඉදිරිපත් කරන්න",
+    linkTrackStatus: "හිමිකම් තත්ත්වය නිරීක්ෂණය කරන්න",
+    linkDigitalPortal: "ඩිජිටල් පෝර්ටලය",
+    contactUs: "අප අමතන්න",
+    copyright: "© 2025 ජනශක්ති ඉන්ෂුවරන්ස් පීඑල්සී. සියලු හිමිකම් ඇවිරිණි.",
+
+    // Branch Portal
+    customerPortalBranch: "පාරිභෝගික පෝර්ටලය - ශාඛාව",
+    submitWithAI: "AI බලයෙන් සත්‍යාපනය සමඟ ඔබේ හිමිකම් ඉදිරිපත් කරන්න",
+    
+    // Steps
+    stepLanguage: "භාෂාව",
+    stepVerify: "තහවුරු",
+    stepDetails: "විස්තර",
+    stepUpload: "උඩුගත",
+    stepComplete: "සම්පූර්ණ",
+
+    // Step 0: Language
+    selectLanguage: "භාෂාව තෝරන්න",
+    selectLanguageDesc: "ඔබ කැමති භාෂාව තෝරන්න",
+    langEnglish: "English",
+    langSinhala: "සිංහල (Sinhala)",
+    langTamil: "தமிழ் (Tamil)",
+
+    // Step 1: Verify
+    verifyPolicy: "පොලිසිය තහවුරු කරන්න",
+    verifyPolicyDesc: "තහවුරු කිරීමට ඔබගේ ජාතික හැඳුනුම්පත් අංකය හෝ පොලිසි අංකය ඇතුළත් කරන්න",
+    labelNICPolicy: "ජා.හැ.අ. හෝ පොලිසි අංකය",
+    placeholderNICPolicy: "ජා.හැ.අ. (උදා: 123456789V) හෝ පොලිසි අංකය ඇතුළත් කරන්න",
+    btnBack: "ආපසු",
+    btnContinue: "ඉදිරියට",
+
+    // Step 2: Details
+    claimDetails: "හිමිකම් විස්තර",
+    claimDetailsDesc: "ඔබගේ හිමිකම් තොරතුරු සපයන්න",
+    labelClaimType: "හිමිකම් වර්ගය",
+    placeholderClaimType: "හිමිකම් වර්ගය තෝරන්න",
+    claimTypeOPD: "OPD (බාහිර රෝගී)",
+    claimTypeSpectacles: "කණ්ණාඩි",
+    claimTypeDental: "දන්ත",
+    labelRelationship: "සම්බන්ධතාවය",
+    placeholderRelationship: "සම්බන්ධතාවය තෝරන්න",
+    relationSelf: "තමා",
+    relationSpouse: "කලත්‍රයා",
+    relationChild: "දරුවා",
+    relationParent: "මවු/පිය",
+    labelBankAccount: "බැංකු ගිණුම් අංකය",
+    placeholderBankAccount: "1234567890 (BOC)",
+
+    // Step 3: Upload
+    uploadDocuments: "ලේඛන උඩුගත කරන්න",
+    uploadDocumentsDesc: "සත්‍යාපනය සඳහා ඔබගේ හිමිකම් ලේඛන උඩුගත කරන්න",
+    dragDropFiles: "ගොනු ඇද දමන්න හෝ Browse කරන්න",
+    supportedFormats: "PDF, JPG, PNG සහාය දක්වයි",
+    btnSubmitClaim2: "හිමිකම් ඉදිරිපත් කරන්න",
+
+    // Step 4: Success
+    claimSubmitted: "හිමිකම් සාර්ථකව ඉදිරිපත් කරන ලදී!",
+    claimReference: "හිමිකම් යොමු අංකය:",
+    claimReviewMsg: "අපි ඔබගේ හිමිකම් සමාලෝචනය කර පැය 24 ක් ඇතුළත SMS මගින් දැනුම් දෙන්නෙමු.",
+    btnSubmitAnother: "තවත් හිමිකමක් ඉදිරිපත් කරන්න",
+
+    // Admin Dashboard
+    adminDashboard: "පරිපාලක උපකරණ පුවරුව",
+    manageAllClaims: "සියලුම හිමිකම් කළමනාකරණය කර සමාලෝචනය කරන්න",
+    totalClaims: "මුළු හිමිකම්",
+    highRisk: "අධි අවදානම",
+    fraudAlerts: "වංචා අනතුරු ඇඟවීම්",
+    avgRiskScore: "සාමාන්‍ය අවදානම් ලකුණු",
+    fromLastMonth: "පසුගිය මාසයට සාපේක්ෂව +12%",
+    requireReview: "ක්ෂණික සමාලෝචනයක් අවශ්‍යයි",
+    flaggedVerification: "සත්‍යාපනය සඳහා සලකුණු කර ඇත",
+    lowRiskOverall: "සමස්තයක් ලෙස අඩු අවදානමක්",
+    ocrAccuracy: "OCR නිරවද්‍යතාවය",
+    fraudDetection: "වංචා හඳුනාගැනීම",
+    processingSpeed: "සැකසුම් වේගය",
+    allClaims: "සියලුම හිමිකම්",
+    reviewManageClaims: "ඉදිරිපත් කළ හිමිකම් සමාලෝචනය කර කළමනාකරණය කරන්න",
+    searchPlaceholder: "හිමිකම් අංකය, පාරිභෝගික, හෝ ජා.හැ.අ. අනුව සොයන්න",
+    allStatus: "සියලු තත්ත්වය",
+    approved: "අනුමත",
+    processing: "සැකසෙමින්",
+    rejected: "ප්‍රතික්ෂේප විය",
+    manualReview: "අතින් සමාලෝචනය",
+    claimId: "හිමිකම් අංකය",
+    customer: "පාරිභෝගික",
+    type: "වර්ගය",
+    amount: "මුදල",
+    riskScore: "අවදානම් ලකුණු",
+    fraudCheck: "වංචා පරීක්ෂාව",
+    ocr: "OCR",
+    status: "තත්ත්වය",
+    action: "ක්‍රියාව",
+    clean: "පිරිසිදු",
+    flagged: "සලකුණු කර ඇත",
+    low: "අඩු",
+    medium: "මධ්‍යම",
+    high: "ඉහළ",
+
+    // Claim Review
+    claimReview: "හිමිකම් සමාලෝචනය",
+    reference: "යොමුව",
+    pendingReview: "සමාලෝචනය අපේක්ෂාවෙන්",
+    claimInformation: "හිමිකම් තොරතුරු",
+    patientName: "රෝගියාගේ නම",
+    policyNumber: "පොලිසි අංකය",
+    submitted: "ඉදිරිපත් කළ",
+    claimAmount: "හිමිකම් මුදල",
+    medicalProvider: "වෛද්‍ය සේවා සපයන්නා",
+    diagnosis: "රෝග විනිශ්චය",
+    treatmentDuration: "ප්‍රතිකාර කාලය",
+    aiAnalysisVerification: "AI විශ්ලේෂණ සහ සත්‍යාපනය",
+    aiAnalysisDesc: "AI පද්ධතිය මඟින් සිදු කරන ස්වයංක්‍රීය පරීක්ෂා සහ සත්‍යාපන",
+    overview: "දළ විසුම",
+    documents: "ලේඛන",
+    policy: "පොලිසිය",
+    fraud: "වංචාව",
+    matching: "ගැලපීම",
+    overallScore: "සමස්ත ලකුණු",
+    highConfidence: "ඉහළ විශ්වාසය",
+    allVerified: "සියල්ල සත්‍යාපිතයි",
+    fraudRisk: "වංචා අවදානම",
+    riskScoreLabel: "අවදානම් ලකුණු",
+    aiProcessingSummary: "AI සැකසුම් සාරාංශය",
+    assessorNotes: "ඇගයුම්කරුගේ සටහන්",
+    addReviewNotes: "ඔබගේ සමාලෝචන සටහන් එක් කරන්න",
+    enterAssessmentNotes: "ඔබගේ ඇගයුම් සටහන් මෙහි ඇතුළත් කරන්න...",
+    quickActions: "ඉක්මන් ක්‍රියාමාර්ග",
+    approveClaim: "හිමිකම අනුමත කරන්න",
+    rejectClaim: "හිමිකම ප්‍රතික්ෂේප කරන්න",
+    requestMoreInfo: "වැඩිදුර තොරතුරු ඉල්ලන්න",
+    submittedDocuments: "ඉදිරිපත් කළ ලේඛන",
+    documentsUploaded: "ලේඛන උඩුගත කර ඇත",
+    claimApprovedSuccess: "හිමිකම සාර්ථකව අනුමත කරන ලදී!",
+    claimRejectedSuccess: "හිමිකම සාර්ථකව ප්‍රතික්ෂේප කරන ලදී!",
+    moreInfoRequested: "වැඩිදුර තොරතුරු ඉල්ලා ඇත!",
+
+    // Digital Portal
+    digitalPortal: "ඩිජිටල් පෝර්ටලය",
+    manageClaimsOnline: "ඔබගේ හිමිකම් මාර්ගගතව කළමනාකරණය කරන්න",
+    myClaims: "මගේ හිමිකම්",
+    newClaim: "නව හිමිකම",
+  },
+  ta: {
+    // Navbar & Common
+    logoMain: "ஜனசக்தி",
+    logoSub: "ஸ்மார்ட் உரிமைகோரல் அமைப்பு",
+    logout: "வெளியேறு",
+
+    // Auth
+    login: "உள்நுழைக",
+    signup: "பதிவு செய்க",
+    email: "மின்னஞ்சல்",
+    enterEmail: "உங்கள் மின்னஞ்சலை உள்ளிடவும்",
+    fullName: "முழு பெயர்",
+    enterFullName: "உங்கள் முழு பெயரை உள்ளிடவும்",
+    nic: "தேசிய அடையாள அட்டை எண்",
+    enterNic: "உங்கள் தே.அ.அ. உள்ளிடவும் (எ.கா: 123456789V)",
+    createPassword: "கடவுச்சொல்லை உருவாக்கவும்",
+    createAccount: "கணக்கை உருவாக்கவும்",
+    loggingIn: "உள்நுழைகிறது...",
+    creatingAccount: "கணக்கை உருவாக்குகிறது...",
+    authTerms: "தொடர்வதன் மூலம், எங்கள் சேவை விதிமுறைகள் மற்றும் தனியுரிமைக் கொள்கையை ஏற்றுக்கொள்கிறீர்கள்",
+    authInvalidCredentials: "தவறான மின்னஞ்சல் அல்லது கடவுச்சொல்",
+    authEmailExists: "இந்த மின்னஞ்சல் ஏற்கனவே பதிவு செய்யப்பட்டுள்ளது. தயவுசெய்து உள்நுழைக.",
+    authLoginSuccess: "உள்நுழைவு வெற்றிகரமானது!",
+    authSignupSuccess: "கணக்கு வெற்றிகரமாக உருவாக்கப்பட்டது!",
+    branchLogin: "கிளை போர்டல் உள்நுழைவு",
+    branchLoginSubtitle: "கிளை ஊழியர்களுக்கு மட்டும்",
+    customerLogin: "வாடிக்கையாளர் போர்டல் உள்நுழைவு",
+    customerLoginSubtitle: "உங்கள் காப்பீட்டு உரிமைகோரல்களை அணுகவும்",
+
+    // Hero Section
+    heroTitle: "ஜனசக்தி ஸ்மார்ட் உரிமைகோரல்கள்",
+    heroSub: "AI ஆல் இயங்கும் ஆவண சரிபார்ப்புடன் உங்கள் உரிமைகோரல்களைச் சமர்ப்பித்து கண்காணிக்கவும். வேகமான, பாதுகாப்பான, எளிமையான.",
+    btnSubmitClaim: "புதிய உரிமைகோரலைச் சமர்ப்பிக்கவும்",
+    btnDigitalPortal: "டிஜிட்டல் போர்டல்",
+
+    // Portal Selection
+    choosePortal: "உங்கள் போர்டலைத் தேர்ந்தெடுக்கவும்",
+    branchPortalTitle: "கிளை போர்டல்",
+    branchPortalSubtitle: "கிளை ஊழியர்கள் மற்றும் வாடிக்கையாளர்களுக்கு",
+    branchPortalDesc: "உதவி ஆவண சரிபார்ப்புடன் உங்கள் அருகிலுள்ள கிளையில் உரிமைகோரல்களைச் சமர்ப்பிக்கவும்",
+    btnAccessPortal: "போர்டலை அணுகவும்",
+    digitalPortalTitle: "டிஜிட்டல் போர்டல்",
+    digitalPortalSubtitle: "மொபைல் மற்றும் ஆன்லைன் சமர்ப்பிப்புகளுக்கு",
+    digitalPortalDesc: "எங்கள் டிஜிட்டல் தளம் வழியாக எப்போது வேண்டுமானாலும், எங்கிருந்தும் உரிமைகோரல்களைச் சமர்ப்பித்து கண்காணிக்கவும்",
+    btnLoginNow: "இப்போது உள்நுழைக",
+    adminTitle: "நிர்வாகி காட்சி",
+    adminSubtitle: "நிர்வாகிகள் மற்றும் ஊழியர்களுக்கு",
+    adminDesc: "விரிவான பகுப்பாய்வு மற்றும் அறிக்கையிடலுடன் அனைத்து உரிமைகோரல்களையும் மதிப்பாய்வு செய்து நிர்வகிக்கவும்",
+    btnAdminLogin: "நிர்வாகி உள்நுழைவு",
+    adminLogin: "நிர்வாகி உள்நுழைவு",
+    adminLoginSubtitle: "நிர்வாகிகளுக்கு மட்டுமே பாதுகாப்பான அணுகல்",
+    username: "பயனர்பெயர்",
+    enterUsername: "நிர்வாகி பயனர்பெயரை உள்ளிடவும்",
+    password: "கடவுச்சொல்",
+    enterPassword: "கடவுச்சொல்லை உள்ளிடவும்",
+
+    // Stats
+    statAI: "AI ஆல் இயங்கும் சரிபார்ப்பு",
+    stat247: "எப்போதும் கிடைக்கும்",
+    statLang: "மொழிகள் ஆதரவு",
+    statFast: "விரைவான செயலாக்கம்",
+
+    // Footer
+    footerDesc: "AI ஆல் இயங்கும் சரிபார்ப்புடன் காப்பீட்டு உரிமைகோரல்களை எளிமையாகவும் வேகமாகவும் வெளிப்படையாகவும் செய்தல்.",
+    quickLinks: "விரைவு இணைப்புகள்",
+    linkSubmitOPD: "OPD கோரிக்கையைச் சமர்ப்பிக்கவும்",
+    linkTrackStatus: "கோரிக்கை நிலையைக் கண்காணிக்கவும்",
+    linkDigitalPortal: "டிஜிட்டல் போர்டல்",
+    contactUs: "எங்களைத் தொடர்பு கொள்ளவும்",
+    copyright: "© 2025 ஜனசக்தி இன்சூரன்ஸ் பிஎல்சி. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
+
+    // Branch Portal
+    customerPortalBranch: "வாடிக்கையாளர் போர்டல் - கிளை",
+    submitWithAI: "AI ஆல் இயங்கும் சரிபார்ப்புடன் உங்கள் கோரிக்கையைச் சமர்ப்பிக்கவும்",
+    
+    // Steps
+    stepLanguage: "மொழி",
+    stepVerify: "சரிபார்",
+    stepDetails: "விவரங்கள்",
+    stepUpload: "பதிவேற்றம்",
+    stepComplete: "முடிந்தது",
+
+    // Step 0: Language
+    selectLanguage: "மொழியைத் தேர்ந்தெடுக்கவும்",
+    selectLanguageDesc: "உங்கள் விருப்பமான மொழியைத் தேர்ந்தெடுக்கவும்",
+    langEnglish: "English",
+    langSinhala: "සිංහල (Sinhala)",
+    langTamil: "தமிழ் (Tamil)",
+
+    // Step 1: Verify
+    verifyPolicy: "கொள்கையை சரிபார்க்கவும்",
+    verifyPolicyDesc: "சரிபார்க்க உங்கள் தேசிய அடையாள அட்டை எண் அல்லது கொள்கை எண்ணை உள்ளிடவும்",
+    labelNICPolicy: "தேசிய அடையாள அட்டை / கொள்கை எண்",
+    placeholderNICPolicy: "தே.அ.அ. (எ.கா: 123456789V) அல்லது கொள்கை எண்ணை உள்ளிடவும்",
+    btnBack: "பின்செல்",
+    btnContinue: "தொடரவும்",
+
+    // Step 2: Details
+    claimDetails: "கோரிக்கை விவரங்கள்",
+    claimDetailsDesc: "உங்கள் கோரிக்கை தகவலை வழங்கவும்",
+    labelClaimType: "கோரிக்கை வகை",
+    placeholderClaimType: "கோரிக்கை வகையைத் தேர்ந்தெடுக்கவும்",
+    claimTypeOPD: "OPD (வெளிநோயாளி)",
+    claimTypeSpectacles: "கண்ணாடி",
+    claimTypeDental: "பல்",
+    labelRelationship: "உறவு",
+    placeholderRelationship: "உறவைத் தேர்ந்தெடுக்கவும்",
+    relationSelf: "சுயம்",
+    relationSpouse: "கணவன்/மனைவி",
+    relationChild: "குழந்தை",
+    relationParent: "பெற்றோர்",
+    labelBankAccount: "வங்கி கணக்கு எண்",
+    placeholderBankAccount: "1234567890 (BOC)",
+
+    // Step 3: Upload
+    uploadDocuments: "ஆவணங்களைப் பதிவேற்றவும்",
+    uploadDocumentsDesc: "சரிபார்ப்புக்கு உங்கள் கோரிக்கை ஆவணங்களைப் பதிவேற்றவும்",
+    dragDropFiles: "கோப்புகளை இழுத்து விடவும் அல்லது Browse செய்யவும்",
+    supportedFormats: "PDF, JPG, PNG ஆதரிக்கப்படுகிறது",
+    btnSubmitClaim2: "கோரிக்கையைச் சமர்ப்பிக்கவும்",
+
+    // Step 4: Success
+    claimSubmitted: "கோரிக்கை வெற்றிகரமாக சமர்ப்பிக்கப்பட்டது!",
+    claimReference: "கோரிக்கை குறிப்பு எண்:",
+    claimReviewMsg: "உங்கள் கோரிக்கையை மதிப்பாய்வு செய்து 24 மணி நேரத்திற்குள் SMS மூலம் தெரிவிப்போம்.",
+    btnSubmitAnother: "மற்றொரு கோரிக்கையைச் சமர்ப்பிக்கவும்",
+
+    // Admin Dashboard
+    adminDashboard: "நிர்வாகி டாஷ்போர்டு",
+    manageAllClaims: "அனைத்து உரிமைகோரல்களையும் நிர்வகித்து மதிப்பாய்வு செய்யவும்",
+    totalClaims: "மொத்த உரிமைகோரல்கள்",
+    highRisk: "அதிக ஆபத்து",
+    fraudAlerts: "மோசடி எச்சரிக்கைகள்",
+    avgRiskScore: "சராசரி ஆபத்து மதிப்பெண்",
+    fromLastMonth: "கடந்த மாதத்திலிருந்து +12%",
+    requireReview: "உடனடி மதிப்பாய்வு தேவை",
+    flaggedVerification: "சரிபார்ப்புக்காக கொடியிடப்பட்டது",
+    lowRiskOverall: "ஒட்டுமொத்தமாக குறைந்த ஆபத்து",
+    ocrAccuracy: "OCR துல்லியம்",
+    fraudDetection: "மோசடி கண்டறிதல்",
+    processingSpeed: "செயலாக்க வேகம்",
+    allClaims: "அனைத்து உரிமைகோரல்கள்",
+    reviewManageClaims: "சமர்ப்பிக்கப்பட்ட உரிமைகோரல்களை மதிப்பாய்வு செய்து நிர்வகிக்கவும்",
+    searchPlaceholder: "கோரிக்கை ஐடி, வாடிக்கையாளர், அல்லது தே.அ.அ. மூலம் தேடவும்",
+    allStatus: "அனைத்து நிலை",
+    approved: "அங்கீகரிக்கப்பட்டது",
+    processing: "செயலாக்கப்படுகிறது",
+    rejected: "நிராகரிக்கப்பட்டது",
+    manualReview: "கைமுறை மதிப்பாய்வு",
+    claimId: "கோரிக்கை ஐடி",
+    customer: "வாடிக்கையாளர்",
+    type: "வகை",
+    amount: "தொகை",
+    riskScore: "ஆபத்து மதிப்பெண்",
+    fraudCheck: "மோசடி சோதனை",
+    ocr: "OCR",
+    status: "நிலை",
+    action: "செயல்",
+    clean: "சுத்தமான",
+    flagged: "கொடியிடப்பட்டது",
+    low: "குறைவு",
+    medium: "நடுத்தர",
+    high: "உயர்வு",
+
+    // Claim Review
+    claimReview: "கோரிக்கை மதிப்பாய்வு",
+    reference: "குறிப்பு",
+    pendingReview: "மதிப்பாய்வு நிலுவையில்",
+    claimInformation: "கோரிக்கை தகவல்",
+    patientName: "நோயாளி பெயர்",
+    policyNumber: "கொள்கை எண்",
+    submitted: "சமர்ப்பிக்கப்பட்டது",
+    claimAmount: "கோரிக்கை தொகை",
+    medicalProvider: "மருத்துவ சேவை வழங்குநர்",
+    diagnosis: "நோய் கண்டறிதல்",
+    treatmentDuration: "சிகிச்சை காலம்",
+    aiAnalysisVerification: "AI பகுப்பாய்வு மற்றும் சரிபார்ப்பு",
+    aiAnalysisDesc: "AI அமைப்பால் செய்யப்படும் தானியங்கி சோதனைகள் மற்றும் சரிபார்ப்புகள்",
+    overview: "கண்ணோட்டம்",
+    documents: "ஆவணங்கள்",
+    policy: "கொள்கை",
+    fraud: "மோசடி",
+    matching: "பொருத்தம்",
+    overallScore: "ஒட்டுமொத்த மதிப்பெண்",
+    highConfidence: "அதிக நம்பிக்கை",
+    allVerified: "அனைத்தும் சரிபார்க்கப்பட்டது",
+    fraudRisk: "மோசடி ஆபத்து",
+    riskScoreLabel: "ஆபத்து மதிப்பெண்",
+    aiProcessingSummary: "AI செயலாக்க சுருக்கம்",
+    assessorNotes: "மதிப்பீட்டாளர் குறிப்புகள்",
+    addReviewNotes: "உங்கள் மதிப்பாய்வு குறிப்புகளைச் சேர்க்கவும்",
+    enterAssessmentNotes: "உங்கள் மதிப்பீட்டு குறிப்புகளை இங்கே உள்ளிடவும்...",
+    quickActions: "விரைவு செயல்கள்",
+    approveClaim: "கோரிக்கையை அங்கீகரிக்கவும்",
+    rejectClaim: "கோரிக்கையை நிராகரிக்கவும்",
+    requestMoreInfo: "கூடுதல் தகவல் கோரவும்",
+    submittedDocuments: "சமர்ப்பிக்கப்பட்ட ஆவணங்கள்",
+    documentsUploaded: "ஆவணங்கள் பதிவேற்றப்பட்டன",
+    claimApprovedSuccess: "கோரிக்கை வெற்றிகரமாக அங்கீகரிக்கப்பட்டது!",
+    claimRejectedSuccess: "கோரிக்கை வெற்றிகரமாக நிராகரிக்கப்பட்டது!",
+    moreInfoRequested: "கூடுதல் தகவல் கோரப்பட்டது!",
+
+    // Digital Portal
+    digitalPortal: "டிஜிட்டல் போர்டல்",
+    manageClaimsOnline: "உங்கள் உரிமைகோரல்களை ஆன்லைனில் நிர்வகிக்கவும்",
+    myClaims: "எனது கோரிக்கைகள்",
+    newClaim: "புதிய கோரிக்கை",
+  },
+};
+
+interface LanguageContextType {
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: typeof translations.en;
+}
+
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+
+export const LanguageProvider = ({ children }: { children: ReactNode }) => {
+  const [language, setLanguage] = useState<Language>("en");
+
+  const t = translations[language];
+
+  return (
+    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+};
+
+export const useLanguage = () => {
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error("useLanguage must be used within a LanguageProvider");
+  }
+  return context;
+};

@@ -1,0 +1,79 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+
+# --- Python / Django ---
+venv/
+env/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Database 
+db.sqlite3
+db.sqlite3-journal
+
+# Media / Uploads 
+media/
+backend/media/
+
+# Uploaded claim documents (patient medical images — never push)
+claim_documents/
+backend/claim_documents/
+
+# Raw insurance data files (large PDFs/Excel — never push)
+JKG PROJECT/
+
+# Sample prescription/bill images — local test data only
+prescriptions and bills/
+rag_figures/
+
+# Project report and presentation files — never push
+project report/
+*.pptx
+*.ppt
+*.docx
+*.doc
+*.pdf
+
+# Static files 
+staticfiles/
+
+# --- Environment Variables  ---
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+db.sqlite3
+migrations/__pycache__/
+# Do NOT ignore migrations/ — Django needs them to run after clone
