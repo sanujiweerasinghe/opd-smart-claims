@@ -35,7 +35,11 @@ const Navbar = ({ variant = "gradient", showLogout = false, onLogout }: NavbarPr
               variant="outline"
               size="sm"
               onClick={onLogout}
-              className="border-white/30 text-white hover:bg-white/10"
+              className={
+                variant === "light"
+                  ? "border-border text-foreground hover:bg-secondary"
+                  : "bg-transparent border-white/30 text-white hover:bg-white/10"
+              }
             >
               <LogOut className="w-4 h-4 mr-2" />
               {t.logout}
