@@ -9,6 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { DatePicker } from "@/components/ui/date-picker";
 import { Progress } from "@/components/ui/progress";
 import {
   Select,
@@ -601,6 +602,15 @@ const BranchPortal = () => {
                             </Select>
                           </div>
                           <div>
+                            <Label>Date of Treatment *</Label>
+                            <DatePicker 
+                              value={formData.dateOfTreatment} 
+                              onChange={(val) => updateFormData("dateOfTreatment", val)} 
+                              placeholder="Select treatment date"
+                              className="mt-1" 
+                            />
+                          </div>
+                          <div>
                             <Label>Claim Amount (LKR) *</Label>
                             <Input type="number" placeholder="0.00" value={formData.claimAmount} onChange={(e) => updateFormData("claimAmount", e.target.value)} className="mt-1" />
                           </div>
@@ -611,7 +621,7 @@ const BranchPortal = () => {
                         </div>
                         <div className="flex gap-3">
                           <Button variant="outline" onClick={prevStep}>{t.btnBack}</Button>
-                          <Button variant="hero" onClick={nextStep} disabled={!formData.claimType || !formData.memberId || !formData.claimAmount || !formData.accountNumber.trim()}>
+                          <Button variant="hero" onClick={nextStep} disabled={!formData.claimType || !formData.memberId || !formData.dateOfTreatment || !formData.claimAmount || !formData.accountNumber.trim()}>
                             {t.btnContinue}
                           </Button>
                         </div>

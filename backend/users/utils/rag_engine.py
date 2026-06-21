@@ -163,7 +163,7 @@ def check_claim_against_rag(claim_data):
         treatment_date = claim_data.get('treatment_date', 'Not provided')
 
         is_self = _is_self_claim(patient_name, policy_holder_name)
-        member_type_label = "Main Member (Self)" if is_self else "Dependent"
+        member_type_label = "Main Member (Self)" if is_self else "Dependent (Spouse/Child)"
 
         # --- Build KB context: ONLY policy_type rules + general_conditions ---
         # Do NOT include JSV-specific company policies (they cause number-matching hallucinations)
@@ -180,13 +180,23 @@ def check_claim_against_rag(claim_data):
             f"GENERAL OPD CONDITIONS:\n{json.dumps(general_conditions, indent=2)}"
         )
 
-        prompt = f"""You are a senior insurance claims assessor at OPD Insurance PLC (Sri Lanka).
+        prompt = f"""
+        Act as an Expert Claims Assessor evaluating a medical claim against a policy knowledge base.
 
-CRITICAL INSTRUCTION: You are performing SEMANTIC COVERAGE ANALYSIS only.
-- Do NOT look for a policy number anywhere.
-- Do NOT say "policy not found" or "policy number not recognized".
-- The policy number is IRRELEVANT to this analysis. IGNORE it completely.
-- Analyze the claim purely based on: claim type, diagnosis, member type, amount, and the policy rules below.
+        # CLAIM DATA:
+        - Claim Type: {claim_type.upper()}
+        - Claim Amount: {claim_amount}
+        - Patient / Claimant: {patient_name}  ({member_type_label})
+        - Doctor Name: {doctor_name}
+        - Diagnosis / Treatment: {diagnosis}
+        - Policy OPD Limit: {policy_opd_limit}
+
+        IMPORTANT: If the claimant is a "Dependent (Spouse/Child)", DO NOT reject the claim for name mismatch. Dependents are fully covered under the policy holder's limit.
+        CRITICAL INSTRUCTION: You are performing SEMANTIC COVERAGE ANALYSIS only.
+        - Do NOT look for a policy number anywhere.
+        - Do NOT say "policy not found" or "policy number not recognized".
+        - The policy number is IRRELEVANT to this analysis. IGNORE it completely.
+        - Analyze the claim purely based on: claim type, diagnosis, member type, amount, and the policy rules below.
 
 === OPD POLICY RULES ===
 {evidence_text}

@@ -201,7 +201,7 @@ def calculate_risk_score(prescriptions, bills, policy, member_names=None):
             if matched > best_matched:
                 best_matched = matched
 
-        if best_score >= 60 or best_matched >= 2:
+        if best_score >= 60 or best_matched >= 1:
             scores['treatment_match'] = 1.0
         else:
             issues.append(f"Name Mismatch: Document('{patient_name}') vs Policy members")

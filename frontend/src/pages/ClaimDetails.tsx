@@ -55,9 +55,11 @@ const ClaimDetails = () => {
 
   // Extract info from description (Doctor Name, Diagnosis)
   const getFieldFromDesc = (key: string) => {
-    if (!claim?.description) return "N/A";
+    if (!claim?.description) return "-";
     const match = claim.description.match(new RegExp(`${key}:\\s*([^,]+)`, "i"));
-    return match ? match[1].trim() : "N/A";
+    const val = match ? match[1].trim() : "";
+    if (!val || val.toLowerCase() === "null" || val.toLowerCase() === "undefined") return "-";
+    return val;
   };
 
   const getStatusBadge = (status: string) => {

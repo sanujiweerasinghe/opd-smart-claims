@@ -35,7 +35,7 @@ const AdminClaimReview = () => {
     if (claimId) fetchRealData();
   }, [claimId]);
 
-  const EMPTY_VALUES = ["N/A", "Unknown", "n/a", "unknown", ""];
+  const EMPTY_VALUES = ["N/A", "Unknown", "n/a", "unknown", "", "null", "undefined"];
 
   // Helper: Extract Doctor Name from legacy description string
   const extractDoctorName = (description: string) => {
@@ -334,12 +334,17 @@ const AdminClaimReview = () => {
                 
                 {/* --- DOCTOR NAME --- */}
                 {claimData.doctorName && (
-                  <div className="flex items-start gap-3">
-                    <Stethoscope className="w-4 h-4 text-muted-foreground mt-0.5" />
+                  <div className="col-span-1 border-l pl-4 border-border/50">
                     <div>
                       <p className="text-xs text-muted-foreground">Doctor Name</p>
                       <p className="font-medium text-primary">{claimData.doctorName}</p>
                     </div>
+                    {claimData.treatmentDate && claimData.treatmentDate !== "N/A" && (
+                      <div className="mt-4">
+                        <p className="text-xs text-muted-foreground">Date of Treatment</p>
+                        <p className="font-medium text-foreground">{claimData.treatmentDate}</p>
+                      </div>
+                    )}
                   </div>
                 )}
 

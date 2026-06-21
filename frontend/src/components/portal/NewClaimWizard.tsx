@@ -8,6 +8,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { DatePicker } from "@/components/ui/date-picker";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -573,19 +574,19 @@ const NewClaimWizard = ({ onComplete }: NewClaimWizardProps) => {
                         <div className="grid md:grid-cols-2 gap-4">
                           <div>
                             <Label>Admission Date *</Label>
-                            <Input
-                              type="date"
+                            <DatePicker
                               value={formData.admissionDate}
-                              onChange={(e) => updateFormData("admissionDate", e.target.value)}
+                              onChange={(val) => updateFormData("admissionDate", val)}
+                              placeholder="Select admission date"
                               className="mt-1"
                             />
                           </div>
                           <div>
                             <Label>Discharge Date</Label>
-                            <Input
-                              type="date"
+                            <DatePicker
                               value={formData.dischargeDate}
-                              onChange={(e) => updateFormData("dischargeDate", e.target.value)}
+                              onChange={(val) => updateFormData("dischargeDate", val)}
+                              placeholder="Select discharge date"
                               className="mt-1"
                             />
                           </div>
@@ -593,10 +594,10 @@ const NewClaimWizard = ({ onComplete }: NewClaimWizardProps) => {
                       ) : (
                         <div>
                           <Label>Date of Treatment *</Label>
-                          <Input
-                            type="date"
+                          <DatePicker
                             value={formData.dateOfTreatment}
-                            onChange={(e) => updateFormData("dateOfTreatment", e.target.value)}
+                            onChange={(val) => updateFormData("dateOfTreatment", val)}
+                            placeholder="Select treatment date"
                             className="mt-1"
                           />
                         </div>

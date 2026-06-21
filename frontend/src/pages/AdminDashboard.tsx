@@ -441,6 +441,7 @@ const AdminDashboard = () => {
               <TableHeader>
                 <TableRow className="hover:bg-transparent">
                   <TableHead className="w-[120px]">Claim ID</TableHead>
+                  <TableHead>Date</TableHead>
                   <TableHead>Customer</TableHead>
                   <TableHead>Type</TableHead>
                   <TableHead>Amount</TableHead>
@@ -460,6 +461,9 @@ const AdminDashboard = () => {
                   filteredClaims.map((claim) => (
                     <TableRow key={claim.id} className="hover:bg-muted/50">
                       <TableCell className="font-medium text-primary">{claim.reference_number}</TableCell>
+                      <TableCell className="text-sm text-muted-foreground whitespace-nowrap">
+                        {new Date(claim.created_at || new Date()).toLocaleDateString()}
+                      </TableCell>
                       <TableCell>
                         <div className="flex flex-col">
                             <span className="font-medium text-foreground">{claim.patient_name || "Unknown"}</span>
