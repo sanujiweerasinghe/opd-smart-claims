@@ -169,7 +169,7 @@ const BranchPortal = () => {
         setFormData((prev) => ({ ...prev, policyId: first.id.toString() }));
 
         if (first.source === 'group') {
-          // Group insurance record returned directly — map it to GroupInsuranceRecord shape
+          // Group insurance record returned directly â€” map it to GroupInsuranceRecord shape
           setGroupInsurance({
             id: first.id,
             document_no: first.policy_number,
@@ -194,7 +194,7 @@ const BranchPortal = () => {
           }
           toast.success(`Group insurance record found for ${first.holder_name}`);
         } else {
-          // Standard individual policy — try a secondary group lookup (optional)
+          // Standard individual policy â€” try a secondary group lookup (optional)
           try {
             const grpRes = await searchGroupInsurance(formData.nicOrPolicy);
             if (grpRes.data && grpRes.data.length > 0) {
@@ -419,7 +419,7 @@ const BranchPortal = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <nav className="bg-gradient-to-r from-orange-500 to-amber-400 sticky top-0 z-50">
+      <nav className="bg-gradient-to-r from-teal-500 to-emerald-400 sticky top-0 z-50">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <Logo variant="dark" onClick={() => navigate("/")} />
           <div className="flex items-center gap-4">
@@ -669,7 +669,7 @@ const BranchPortal = () => {
                           </>
                         ) : (
                           <>
-                            <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className={cn("w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6", aiResults?.pipeline_results?.decision === "auto_approve" ? "bg-green-500" : aiResults?.pipeline_results?.decision === "reject" ? "bg-red-500" : "bg-amber-500")}>
+                            <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className={cn("w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6", aiResults?.pipeline_results?.decision === "auto_approve" ? "bg-green-500" : aiResults?.pipeline_results?.decision === "reject" ? "bg-red-500" : "bg-emerald-500")}>
                               {aiResults?.pipeline_results?.decision === "auto_approve" ? <CheckCircle className="w-10 h-10 text-white" /> : aiResults?.pipeline_results?.decision === "reject" ? <X className="w-10 h-10 text-white" /> : <AlertCircle className="w-10 h-10 text-white" />}
                             </motion.div>
                             <h2 className="text-2xl font-bold text-foreground mb-2">{t.claimSubmitted}</h2>
@@ -679,15 +679,15 @@ const BranchPortal = () => {
                             </div>
                             <p className="text-muted-foreground mb-4">{t.claimReviewMsg}</p>
 
-                            {/* Re-upload option for rejected / manual review — max 3 attempts */}
+                            {/* Re-upload option for rejected / manual review â€” max 3 attempts */}
                             {aiResults?.pipeline_results?.decision !== 'auto_approve' &&
                              (aiResults?.pipeline_results?.attempts_remaining ?? 0) > 0 && (
-                              <div className="mb-4 p-3 rounded-lg bg-amber-50 border border-amber-200 max-w-xs mx-auto">
-                                <p className="text-xs text-amber-700 mb-2">
+                              <div className="mb-4 p-3 rounded-lg bg-emerald-50 border border-emerald-200 max-w-xs mx-auto">
+                                <p className="text-xs text-emerald-700 mb-2">
                                   Documents can be re-uploaded up to{' '}
                                   <strong>{aiResults?.pipeline_results?.attempts_remaining}</strong> more time(s).
                                 </p>
-                                <Button variant="outline" size="sm" onClick={handleResubmit} className="w-full text-amber-700 border-amber-400 hover:bg-amber-100">
+                                <Button variant="outline" size="sm" onClick={handleResubmit} className="w-full text-emerald-700 border-emerald-400 hover:bg-emerald-100">
                                   Re-upload Documents &amp; Retry
                                 </Button>
                               </div>

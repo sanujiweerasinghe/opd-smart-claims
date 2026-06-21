@@ -17,7 +17,7 @@ const Navbar = ({ variant = "gradient", showLogout = false, onLogout }: NavbarPr
 
   const bgClass =
     variant === "gradient"
-      ? "bg-gradient-to-r from-orange-500 to-amber-400"
+      ? "bg-gradient-to-r from-teal-500 to-emerald-400"
       : variant === "dark"
       ? "bg-[#1a1a1a]"
       : "bg-card/80 backdrop-blur-md border-b border-border";

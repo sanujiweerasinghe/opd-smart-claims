@@ -53,7 +53,7 @@ const AdminClaimReview = () => {
     return EMPTY_VALUES.includes(val) ? "" : val;
   };
 
-  // Normalize a raw field value — returns "" for placeholder/junk values
+  // Normalize a raw field value â€” returns "" for placeholder/junk values
   const normalize = (raw: string | null | undefined): string => {
     if (!raw) return "";
     const trimmed = raw.trim();
@@ -162,7 +162,7 @@ const AdminClaimReview = () => {
         {
           title: "Claim Amount vs Policy Limit",
           label1: "Limit Utilization",
-          label1Note: `LKR ${rawAmt.toLocaleString()} of LKR ${rawLim > 0 ? rawLim.toLocaleString() : "—"} OPD limit`,
+          label1Note: `LKR ${rawAmt.toLocaleString()} of LKR ${rawLim > 0 ? rawLim.toLocaleString() : "â€”"} OPD limit`,
           percentage: amtPct,
           label2: "Remaining Limit",
           label2Note: rawLim > 0
@@ -263,7 +263,7 @@ const AdminClaimReview = () => {
 
   const getStatusBadge = (status: string) => {
     const styles: any = {
-      pending: "bg-amber-100 text-amber-700",
+      pending: "bg-emerald-100 text-emerald-700",
       approved: "bg-green-100 text-green-700",
       rejected: "bg-red-100 text-red-700",
     };
@@ -409,12 +409,12 @@ const AdminClaimReview = () => {
 
                     // Field comparison rows
                     const fields = [
-                      { label: "Member Name",        ocr: claimData?.patientName || "—", ref: policyData?.holderName || "—",      conf: fc.name,      status: nameStatus },
-                      { label: "Policy Number",       ocr: claimData?.policyNumber || "—", ref: claimData?.policyNumber || "—",    conf: fc.policyNum, status: "match" as const },
-                      { label: "Claim Amount",        ocr: claimData?.claimAmount || "—",  ref: policyData?.opdLimit || "—",       conf: fc.amount,    status: amtOver ? ("partial" as const) : ("match" as const) },
-                      { label: "Treatment Date",      ocr: claimData?.treatmentDate || "—", ref: claimData?.treatmentDate || "—",  conf: fc.date,      status: "match" as const },
-                      { label: "Diagnosis",           ocr: claimData?.diagnosis || "—",    ref: "—",                               conf: fc.diagnosis, status: "info" as const },
-                      { label: "Doctor / Hospital",   ocr: claimData?.doctorName || "—",   ref: "—",                               conf: fc.doctor,    status: "info" as const },
+                      { label: "Member Name",        ocr: claimData?.patientName || "â€”", ref: policyData?.holderName || "â€”",      conf: fc.name,      status: nameStatus },
+                      { label: "Policy Number",       ocr: claimData?.policyNumber || "â€”", ref: claimData?.policyNumber || "â€”",    conf: fc.policyNum, status: "match" as const },
+                      { label: "Claim Amount",        ocr: claimData?.claimAmount || "â€”",  ref: policyData?.opdLimit || "â€”",       conf: fc.amount,    status: amtOver ? ("partial" as const) : ("match" as const) },
+                      { label: "Treatment Date",      ocr: claimData?.treatmentDate || "â€”", ref: claimData?.treatmentDate || "â€”",  conf: fc.date,      status: "match" as const },
+                      { label: "Diagnosis",           ocr: claimData?.diagnosis || "â€”",    ref: "â€”",                               conf: fc.diagnosis, status: "info" as const },
+                      { label: "Doctor / Hospital",   ocr: claimData?.doctorName || "â€”",   ref: "â€”",                               conf: fc.doctor,    status: "info" as const },
                     ];
 
                     const matchCount    = fields.filter(f => f.status === "match").length;
@@ -422,21 +422,21 @@ const AdminClaimReview = () => {
                     const minorCount    = fields.filter(f => f.status === "partial").length;
 
                     const docQuality  = base >= 90 ? "Good" : base >= 70 ? "Fair" : "Poor";
-                    const dqClass     = base >= 90 ? "text-green-700 bg-green-100" : base >= 70 ? "text-amber-700 bg-amber-100" : "text-red-700 bg-red-100";
+                    const dqClass     = base >= 90 ? "text-green-700 bg-green-100" : base >= 70 ? "text-emerald-700 bg-emerald-100" : "text-red-700 bg-red-100";
                     const verStatus   = criticalCount > 0 || base < 60
                       ? { label: "Manual Review Required",    dot: "bg-red-500",    cls: "text-red-700 bg-red-100" }
                       : minorCount > 0 || base < 80
-                      ? { label: "Manual Review Recommended", dot: "bg-amber-500",  cls: "text-amber-700 bg-amber-100" }
+                      ? { label: "Manual Review Recommended", dot: "bg-emerald-500",  cls: "text-emerald-700 bg-emerald-100" }
                       : { label: "Auto-Verified",             dot: "bg-green-500",  cls: "text-green-700 bg-green-100" };
 
-                    const scoreCls  = base >= 80 ? "text-green-600" : base >= 60 ? "text-amber-600" : "text-red-600";
-                    const scoreBg   = base >= 80 ? "bg-green-50 border-green-200" : base >= 60 ? "bg-amber-50 border-amber-200" : "bg-red-50 border-red-200";
-                    const riskCls   = fRisk === "Low" ? "text-green-600" : fRisk === "High" ? "text-red-600" : "text-amber-600";
-                    const confBar   = (v: number) => v >= 90 ? "bg-green-500" : v >= 75 ? "bg-amber-400" : "bg-red-400";
+                    const scoreCls  = base >= 80 ? "text-green-600" : base >= 60 ? "text-emerald-600" : "text-red-600";
+                    const scoreBg   = base >= 80 ? "bg-green-50 border-green-200" : base >= 60 ? "bg-emerald-50 border-emerald-200" : "bg-red-50 border-red-200";
+                    const riskCls   = fRisk === "Low" ? "text-green-600" : fRisk === "High" ? "text-red-600" : "text-emerald-600";
+                    const confBar   = (v: number) => v >= 90 ? "bg-green-500" : v >= 75 ? "bg-emerald-400" : "bg-red-400";
 
                     const statusBadge = (s: string) => {
                       if (s === "match")    return <span className="inline-flex items-center gap-1 text-xs font-medium text-green-700 bg-green-100 px-2 py-0.5 rounded-full"><CheckCircle2 className="w-3 h-3" />Match</span>;
-                      if (s === "partial")  return <span className="inline-flex items-center gap-1 text-xs font-medium text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full"><AlertTriangle className="w-3 h-3" />Partial Match</span>;
+                      if (s === "partial")  return <span className="inline-flex items-center gap-1 text-xs font-medium text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full"><AlertTriangle className="w-3 h-3" />Partial Match</span>;
                       if (s === "mismatch") return <span className="inline-flex items-center gap-1 text-xs font-medium text-red-700 bg-red-100 px-2 py-0.5 rounded-full"><XCircle className="w-3 h-3" />Mismatch</span>;
                       return <span className="inline-flex items-center gap-1 text-xs font-medium text-blue-700 bg-blue-100 px-2 py-0.5 rounded-full"><FileText className="w-3 h-3" />Extracted</span>;
                     };
@@ -448,7 +448,7 @@ const AdminClaimReview = () => {
                       ...(nameStatus === "match"    ? [{ text: "Member name matched policy record",                                 type: "ok"   as const }] : []),
                       ...(nameStatus === "partial"  ? [{ text: "Member name partially differs from policy record",                  type: "warn" as const },
                                                        { text: "OCR confidence below threshold for name field",                    type: "warn" as const }] : []),
-                      ...(nameStatus === "mismatch" ? [{ text: "Member name does not match policy record — verify identity",        type: "fail" as const }] : []),
+                      ...(nameStatus === "mismatch" ? [{ text: "Member name does not match policy record â€” verify identity",        type: "fail" as const }] : []),
                       ...(amtOver                  ? [{ text: "Claim amount exceeds OPD benefit limit",                            type: "fail" as const }] : []),
                       ...(base < 80                ? [{ text: "Overall OCR confidence below optimal threshold",                    type: "warn" as const }] : []),
                     ];
@@ -465,7 +465,7 @@ const AdminClaimReview = () => {
                     return (
                       <div className="space-y-4">
 
-                        {/* ── Executive Summary Cards ── */}
+                        {/* â”€â”€ Executive Summary Cards â”€â”€ */}
                         <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
                           <div className={`rounded-xl border p-4 ${scoreBg}`}>
                             <p className="text-xs text-muted-foreground mb-1">Overall Score</p>
@@ -474,7 +474,7 @@ const AdminClaimReview = () => {
                           </div>
                           <div className="rounded-xl border bg-card p-4">
                             <p className="text-xs text-muted-foreground mb-1">OCR Confidence</p>
-                            <p className={`text-3xl font-bold ${ocrConf >= 80 ? "text-green-600" : ocrConf >= 60 ? "text-amber-600" : "text-red-600"}`}>{ocrConf}%</p>
+                            <p className={`text-3xl font-bold ${ocrConf >= 80 ? "text-green-600" : ocrConf >= 60 ? "text-emerald-600" : "text-red-600"}`}>{ocrConf}%</p>
                             <p className="text-xs text-muted-foreground mt-1">Avg. Field Accuracy</p>
                           </div>
                           <div className="rounded-xl border bg-card p-4">
@@ -488,7 +488,7 @@ const AdminClaimReview = () => {
                               <p className={`text-3xl font-bold ${criticalCount > 0 ? "text-red-600" : "text-green-600"}`}>{criticalCount}</p>
                               <p className="text-xs text-muted-foreground mb-1">Critical</p>
                             </div>
-                            <p className="text-xs text-amber-600">{minorCount} Minor</p>
+                            <p className="text-xs text-emerald-600">{minorCount} Minor</p>
                           </div>
                           <div className="rounded-xl border bg-card p-4">
                             <p className="text-xs text-muted-foreground mb-1">Risk Level</p>
@@ -497,7 +497,7 @@ const AdminClaimReview = () => {
                           </div>
                         </div>
 
-                        {/* ── OCR Verification Summary Banner ── */}
+                        {/* â”€â”€ OCR Verification Summary Banner â”€â”€ */}
                         <div className="rounded-xl border bg-card p-4">
                           <h3 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
                             <FileText className="w-4 h-4 text-primary" />
@@ -505,12 +505,12 @@ const AdminClaimReview = () => {
                           </h3>
                           <div className="flex flex-wrap gap-3">
                             <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-muted/40">
-                              <span className={`w-2 h-2 rounded-full ${base >= 90 ? "bg-green-500" : base >= 70 ? "bg-amber-400" : "bg-red-400"}`} />
+                              <span className={`w-2 h-2 rounded-full ${base >= 90 ? "bg-green-500" : base >= 70 ? "bg-emerald-400" : "bg-red-400"}`} />
                               <span className="text-xs text-muted-foreground">Document Quality:</span>
                               <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${dqClass}`}>{docQuality} ({base}%)</span>
                             </div>
                             <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-muted/40">
-                              <span className={`w-2 h-2 rounded-full ${ocrConf >= 80 ? "bg-green-500" : ocrConf >= 60 ? "bg-amber-400" : "bg-red-400"}`} />
+                              <span className={`w-2 h-2 rounded-full ${ocrConf >= 80 ? "bg-green-500" : ocrConf >= 60 ? "bg-emerald-400" : "bg-red-400"}`} />
                               <span className="text-xs text-muted-foreground">OCR Extraction Confidence:</span>
                               <span className="text-xs font-semibold">{ocrConf}%</span>
                             </div>
@@ -522,7 +522,7 @@ const AdminClaimReview = () => {
                           </div>
                         </div>
 
-                        {/* ── Extracted Information Table ── */}
+                        {/* â”€â”€ Extracted Information Table â”€â”€ */}
                         <div className="rounded-xl border bg-card overflow-hidden">
                           <div className="px-4 py-3 border-b bg-muted/30 flex items-center gap-2">
                             <CheckCircle className="w-4 h-4 text-primary" />
@@ -562,7 +562,7 @@ const AdminClaimReview = () => {
                         </div>
 
                         <div className="grid md:grid-cols-2 gap-4">
-                          {/* ── OCR Confidence Breakdown ── */}
+                          {/* â”€â”€ OCR Confidence Breakdown â”€â”€ */}
                           <div className="rounded-xl border bg-card p-4">
                             <div className="flex items-center gap-2 mb-4">
                               <TrendingUp className="w-4 h-4 text-primary" />
@@ -580,7 +580,7 @@ const AdminClaimReview = () => {
                                 <div key={i}>
                                   <div className="flex justify-between text-xs mb-1">
                                     <span className="text-muted-foreground">{item.label}</span>
-                                    <span className={`font-semibold ${item.value >= 90 ? "text-green-600" : item.value >= 75 ? "text-amber-600" : "text-red-600"}`}>{item.value}%</span>
+                                    <span className={`font-semibold ${item.value >= 90 ? "text-green-600" : item.value >= 75 ? "text-emerald-600" : "text-red-600"}`}>{item.value}%</span>
                                   </div>
                                   <div className="h-2 rounded-full bg-muted overflow-hidden">
                                     <div className={`h-full rounded-full ${confBar(item.value)}`} style={{ width: `${item.value}%` }} />
@@ -590,7 +590,7 @@ const AdminClaimReview = () => {
                             </div>
                           </div>
 
-                          {/* ── Key Findings + Processing Pipeline ── */}
+                          {/* â”€â”€ Key Findings + Processing Pipeline â”€â”€ */}
                           <div className="space-y-4">
                             <div className="rounded-xl border bg-card p-4">
                               <div className="flex items-center gap-2 mb-3">
@@ -601,9 +601,9 @@ const AdminClaimReview = () => {
                                 {keyFindings.map((f, i) => (
                                   <div key={i} className="flex items-start gap-2 text-xs">
                                     {f.type === "ok"   ? <CheckCircle2 className="w-3.5 h-3.5 text-green-600 mt-0.5 shrink-0" />  :
-                                     f.type === "warn" ? <AlertTriangle className="w-3.5 h-3.5 text-amber-500 mt-0.5 shrink-0" /> :
+                                     f.type === "warn" ? <AlertTriangle className="w-3.5 h-3.5 text-emerald-500 mt-0.5 shrink-0" /> :
                                                          <XCircle className="w-3.5 h-3.5 text-red-500 mt-0.5 shrink-0" />}
-                                    <span className={f.type === "ok" ? "text-foreground" : f.type === "warn" ? "text-amber-700" : "text-red-700"}>{f.text}</span>
+                                    <span className={f.type === "ok" ? "text-foreground" : f.type === "warn" ? "text-emerald-700" : "text-red-700"}>{f.text}</span>
                                   </div>
                                 ))}
                               </div>
@@ -618,12 +618,12 @@ const AdminClaimReview = () => {
                                 {timeline.map((step, i) => (
                                   <div key={i} className="flex items-start gap-3">
                                     <div className="flex flex-col items-center">
-                                      <div className={`w-5 h-5 rounded-full flex items-center justify-center text-white mt-0.5 shrink-0 ${step.ok ? "bg-green-500" : step.warn ? "bg-amber-400" : "bg-red-400"}`}>
+                                      <div className={`w-5 h-5 rounded-full flex items-center justify-center text-white mt-0.5 shrink-0 ${step.ok ? "bg-green-500" : step.warn ? "bg-emerald-400" : "bg-red-400"}`}>
                                         {step.ok ? <CheckCircle2 className="w-3 h-3" /> : step.warn ? <AlertTriangle className="w-3 h-3" /> : <XCircle className="w-3 h-3" />}
                                       </div>
                                       {i < timeline.length - 1 && <div className="w-px h-5 bg-border mt-1" />}
                                     </div>
-                                    <p className={`text-xs py-0.5 ${step.ok ? "text-foreground" : step.warn ? "text-amber-700" : "text-red-700"}`}>{step.label}</p>
+                                    <p className={`text-xs py-0.5 ${step.ok ? "text-foreground" : step.warn ? "text-emerald-700" : "text-red-700"}`}>{step.label}</p>
                                   </div>
                                 ))}
                               </div>
@@ -631,14 +631,14 @@ const AdminClaimReview = () => {
                           </div>
                         </div>
 
-                        {/* ── AI Recommendation ── */}
-                        <div className={`rounded-xl border-l-4 p-4 ${criticalCount > 0 ? "border-l-red-500 bg-red-50" : minorCount > 0 ? "border-l-amber-400 bg-amber-50" : "border-l-green-500 bg-green-50"}`}>
+                        {/* â”€â”€ AI Recommendation â”€â”€ */}
+                        <div className={`rounded-xl border-l-4 p-4 ${criticalCount > 0 ? "border-l-red-500 bg-red-50" : minorCount > 0 ? "border-l-emerald-400 bg-emerald-50" : "border-l-green-500 bg-green-50"}`}>
                           <div className="flex items-start gap-3">
-                            <div className={`p-1.5 rounded-lg mt-0.5 ${criticalCount > 0 ? "bg-red-100" : minorCount > 0 ? "bg-amber-100" : "bg-green-100"}`}>
-                              {criticalCount > 0 ? <XCircle className="w-4 h-4 text-red-600" /> : minorCount > 0 ? <AlertTriangle className="w-4 h-4 text-amber-600" /> : <CheckCircle className="w-4 h-4 text-green-600" />}
+                            <div className={`p-1.5 rounded-lg mt-0.5 ${criticalCount > 0 ? "bg-red-100" : minorCount > 0 ? "bg-emerald-100" : "bg-green-100"}`}>
+                              {criticalCount > 0 ? <XCircle className="w-4 h-4 text-red-600" /> : minorCount > 0 ? <AlertTriangle className="w-4 h-4 text-emerald-600" /> : <CheckCircle className="w-4 h-4 text-green-600" />}
                             </div>
                             <div>
-                              <p className={`text-sm font-semibold mb-1 ${criticalCount > 0 ? "text-red-700" : minorCount > 0 ? "text-amber-700" : "text-green-700"}`}>
+                              <p className={`text-sm font-semibold mb-1 ${criticalCount > 0 ? "text-red-700" : minorCount > 0 ? "text-emerald-700" : "text-green-700"}`}>
                                 AI Recommendation: {verStatus.label}
                               </p>
                               <p className="text-xs text-muted-foreground leading-relaxed">{fraudAnalysis?.recommendation || "Automated review complete. All critical checks passed."}</p>
@@ -654,11 +654,11 @@ const AdminClaimReview = () => {
                 {/* --- DOCUMENTS TAB --- */}
                 <TabsContent value="documents" className="space-y-4">
                   {documentAnalysis.map((doc, i) => (
-                    <div key={i} className="border-l-4 border-l-amber-400 rounded-lg bg-muted/20 p-4">
+                    <div key={i} className="border-l-4 border-l-emerald-400 rounded-lg bg-muted/20 p-4">
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center gap-2">
-                          <FileText className="w-4 h-4 text-amber-600" />
-                          <span className="font-semibold text-amber-600">{doc.name}</span>
+                          <FileText className="w-4 h-4 text-emerald-600" />
+                          <span className="font-semibold text-emerald-600">{doc.name}</span>
                         </div>
                         <Badge className={cn("text-white", getDocStatusColor(doc.status))}>
                           {doc.status === "verified" ? "Verified" : "Failed"}
@@ -693,16 +693,16 @@ const AdminClaimReview = () => {
                     
                     <div className="grid md:grid-cols-2 gap-4 mb-6">
                       <div>
-                        <p className="text-xs text-amber-600">Policy Number</p>
-                        <p className="font-medium text-amber-600">{policyData.policyNumber}</p>
+                        <p className="text-xs text-emerald-600">Policy Number</p>
+                        <p className="font-medium text-emerald-600">{policyData.policyNumber}</p>
                       </div>
                       <div>
                         <p className="text-xs text-muted-foreground">Policy Status</p>
                         <Badge className="bg-green-500 text-white">{policyData.policyStatus}</Badge>
                       </div>
                       <div>
-                        <p className="text-xs text-amber-600">Claim Type</p>
-                        <p className="font-medium text-amber-600">{policyData.claimType}</p>
+                        <p className="text-xs text-emerald-600">Claim Type</p>
+                        <p className="font-medium text-emerald-600">{policyData.claimType}</p>
                       </div>
                       <div>
                         <p className="text-xs text-muted-foreground">Coverage Type</p>
@@ -713,11 +713,11 @@ const AdminClaimReview = () => {
                     <h4 className="font-semibold text-foreground mb-3">Coverage Details</h4>
                     <div className="space-y-2 mb-6">
                       <div className="flex justify-between">
-                        <span className="text-xs text-amber-600">OPD Limit</span>
+                        <span className="text-xs text-emerald-600">OPD Limit</span>
                         <span className="font-medium">{policyData.opdLimit}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-xs text-amber-600">Current Claim Amount</span>
+                        <span className="text-xs text-emerald-600">Current Claim Amount</span>
                         <span className="font-medium">{policyData.currentClaimAmount}</span>
                       </div>
                     </div>
@@ -747,11 +747,11 @@ const AdminClaimReview = () => {
 
                     <div className="grid md:grid-cols-2 gap-4 mb-6">
                       <div className="bg-green-50 rounded-lg p-4">
-                        <p className="text-xs text-amber-600">Anomaly Score</p>
+                        <p className="text-xs text-emerald-600">Anomaly Score</p>
                         <p className="text-3xl font-bold text-green-600">{fraudAnalysis.anomalyScore}</p>
                       </div>
                       <div className="bg-green-50 rounded-lg p-4">
-                        <p className="text-xs text-amber-600">Fraud Risk Score</p>
+                        <p className="text-xs text-emerald-600">Fraud Risk Score</p>
                         <p className="text-3xl font-bold text-green-600">{fraudAnalysis.fraudRiskScore}</p>
                       </div>
                     </div>
@@ -760,7 +760,7 @@ const AdminClaimReview = () => {
                     <div className="grid md:grid-cols-2 gap-3 mb-6">
                       {fraudAnalysis.riskIndicators.map((indicator: any, i: number) => (
                         <div key={i} className="flex items-center justify-between">
-                          <span className="text-xs text-amber-600">{indicator.label}</span>
+                          <span className="text-xs text-emerald-600">{indicator.label}</span>
                           <Badge className={cn("text-white", indicator.color === "green" ? "bg-green-500" : "bg-red-500")}>
                             {indicator.status}
                           </Badge>
@@ -777,14 +777,14 @@ const AdminClaimReview = () => {
                     <div key={i} className={`border-l-4 ${
                       match.status === 'Valid' || match.status === 'Within Limit'
                         ? 'border-l-green-500'
-                        : 'border-l-amber-400'
+                        : 'border-l-emerald-400'
                     } rounded-lg bg-muted/20 p-4`}>
                       <div className="flex items-center justify-between mb-1">
-                        <span className="font-semibold text-amber-600">{match.title}</span>
+                        <span className="font-semibold text-emerald-600">{match.title}</span>
                         <Badge className={`text-white ${
                           match.status === 'Valid' || match.status === 'Within Limit'
                             ? 'bg-green-500'
-                            : 'bg-amber-500'
+                            : 'bg-emerald-500'
                         }`}>{match.status}</Badge>
                       </div>
                       <p className="text-xs text-muted-foreground mb-3">{match.description}</p>
@@ -794,7 +794,7 @@ const AdminClaimReview = () => {
                         <div className="p-3 rounded-lg bg-background border text-center">
                           <p className="text-[11px] font-medium text-muted-foreground mb-1">{match.label1}</p>
                           <p className={`text-2xl font-bold ${
-                            match.percentage >= 80 ? 'text-green-600' : match.percentage >= 60 ? 'text-amber-600' : 'text-red-600'
+                            match.percentage >= 80 ? 'text-green-600' : match.percentage >= 60 ? 'text-emerald-600' : 'text-red-600'
                           }`}>{match.percentage}%</p>
                           {match.label1Note && (
                             <p className="text-[10px] text-muted-foreground mt-1 leading-tight">{match.label1Note}</p>
@@ -803,7 +803,7 @@ const AdminClaimReview = () => {
                         <div className="p-3 rounded-lg bg-background border text-center">
                           <p className="text-[11px] font-medium text-muted-foreground mb-1">{match.label2}</p>
                           <p className={`text-2xl font-bold ${
-                            match.docConfidence >= 80 ? 'text-green-600' : match.docConfidence >= 60 ? 'text-amber-600' : 'text-red-600'
+                            match.docConfidence >= 80 ? 'text-green-600' : match.docConfidence >= 60 ? 'text-emerald-600' : 'text-red-600'
                           }`}>{match.docConfidence}%</p>
                           {match.label2Note && (
                             <p className="text-[10px] text-muted-foreground mt-1 leading-tight">{match.label2Note}</p>
@@ -827,7 +827,7 @@ const AdminClaimReview = () => {
                       className="gap-2 text-xs"
                     >
                       <Sparkles className={`w-3.5 h-3.5 ${ragLoading ? 'animate-spin' : ''}`} />
-                      {ragLoading ? "Analyzing…" : "Re-analyze Coverage"}
+                      {ragLoading ? "Analyzingâ€¦" : "Re-analyze Coverage"}
                     </Button>
                   </div>
                   {ragData ? (() => {
@@ -837,9 +837,9 @@ const AdminClaimReview = () => {
                     const isRequiresReview = status === "REQUIRES_REVIEW" || status === "PARTIALLY_COVERED" || status === "UNKNOWN";
                     const isNotCovered = status === "NOT_COVERED";
 
-                    const statusColor = isLikelyCovered ? "border-l-green-500" : isRequiresReview ? "border-l-amber-400" : "border-l-red-500";
-                    const statusBg = isLikelyCovered ? "bg-green-50 border-green-200" : isRequiresReview ? "bg-amber-50 border-amber-200" : "bg-red-50 border-red-200";
-                    const statusText = isLikelyCovered ? "text-green-700" : isRequiresReview ? "text-amber-700" : "text-red-700";
+                    const statusColor = isLikelyCovered ? "border-l-green-500" : isRequiresReview ? "border-l-emerald-400" : "border-l-red-500";
+                    const statusBg = isLikelyCovered ? "bg-green-50 border-green-200" : isRequiresReview ? "bg-emerald-50 border-emerald-200" : "bg-red-50 border-red-200";
+                    const statusText = isLikelyCovered ? "text-green-700" : isRequiresReview ? "text-emerald-700" : "text-red-700";
                     const StatusIcon = isLikelyCovered ? ShieldCheck : isRequiresReview ? ShieldAlert : Shield;
                     const statusLabel = isLikelyCovered ? "Likely Covered" : isRequiresReview ? "Requires Review" : "Not Covered";
 
@@ -864,10 +864,10 @@ const AdminClaimReview = () => {
                         ) : passed === false ? (
                           <XCircle className="w-4 h-4 text-red-500 mt-0.5 shrink-0" />
                         ) : (
-                          <Clock className="w-4 h-4 text-amber-500 mt-0.5 shrink-0" />
+                          <Clock className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
                         )}
                         <div>
-                          <span className={`text-sm font-medium ${passed === true ? 'text-green-700' : passed === false ? 'text-red-600' : 'text-amber-600'}`}>{label}</span>
+                          <span className={`text-sm font-medium ${passed === true ? 'text-green-700' : passed === false ? 'text-red-600' : 'text-emerald-600'}`}>{label}</span>
                           {note && <p className="text-xs text-muted-foreground mt-0.5">{note}</p>}
                         </div>
                       </div>
@@ -876,12 +876,12 @@ const AdminClaimReview = () => {
                     return (
                       <div className="space-y-4">
 
-                        {/* ── Section 1: Coverage Assessment ── */}
+                        {/* â”€â”€ Section 1: Coverage Assessment â”€â”€ */}
                         <div className={`rounded-xl border-l-4 ${statusColor} border ${statusBg} p-5`}>
                           <div className="flex items-start justify-between gap-4 mb-5">
                             {/* Status */}
                             <div className="flex items-center gap-3">
-                              <div className={`p-2 rounded-lg ${isLikelyCovered ? 'bg-green-100' : isRequiresReview ? 'bg-amber-100' : 'bg-red-100'}`}>
+                              <div className={`p-2 rounded-lg ${isLikelyCovered ? 'bg-green-100' : isRequiresReview ? 'bg-emerald-100' : 'bg-red-100'}`}>
                                 <StatusIcon className={`w-6 h-6 ${statusText}`} />
                               </div>
                               <div>
@@ -894,13 +894,13 @@ const AdminClaimReview = () => {
                               {confidence !== null && (
                                 <div>
                                   <p className="text-xs text-muted-foreground">Confidence</p>
-                                  <p className={`text-2xl font-bold ${confidence >= 75 ? 'text-green-700' : confidence >= 50 ? 'text-amber-600' : 'text-red-600'}`}>{confidence}%</p>
+                                  <p className={`text-2xl font-bold ${confidence >= 75 ? 'text-green-700' : confidence >= 50 ? 'text-emerald-600' : 'text-red-600'}`}>{confidence}%</p>
                                 </div>
                               )}
                               {matchScore !== null && (
                                 <div>
                                   <p className="text-xs text-muted-foreground">Policy Match</p>
-                                  <p className={`text-2xl font-bold ${matchScore >= 75 ? 'text-green-700' : matchScore >= 50 ? 'text-amber-600' : 'text-red-600'}`}>{matchScore}%</p>
+                                  <p className={`text-2xl font-bold ${matchScore >= 75 ? 'text-green-700' : matchScore >= 50 ? 'text-emerald-600' : 'text-red-600'}`}>{matchScore}%</p>
                                 </div>
                               )}
                             </div>
@@ -919,7 +919,7 @@ const AdminClaimReview = () => {
                               ragData.benefit_limit || (ragData.benefit_limit_value > 0 ? `LKR ${Number(ragData.benefit_limit_value).toLocaleString()}` : undefined)
                             )}
                             {checkItem(waitingPeriodPassed, "Waiting Period",
-                              ragData.waiting_period_note || (ragData.waiting_period_concern ? "Concern detected — verify eligibility date" : "30-day standard period")
+                              ragData.waiting_period_note || (ragData.waiting_period_concern ? "Concern detected â€” verify eligibility date" : "30-day standard period")
                             )}
                             {checkItem(noExclusions, "No Exclusions",
                               exclusions.length > 0 ? exclusions.join("; ") : "No exclusions triggered"
@@ -932,7 +932,7 @@ const AdminClaimReview = () => {
                           </div>
                         </div>
 
-                        {/* ── Section 2: Policy Evidence ── */}
+                        {/* â”€â”€ Section 2: Policy Evidence â”€â”€ */}
                         {(matchedClauses.length > 0 || contradictingClauses.length > 0) && (
                           <div className="rounded-xl border bg-card p-5">
                             <div className="flex items-center gap-2 mb-4">
@@ -972,7 +972,7 @@ const AdminClaimReview = () => {
                           </div>
                         )}
 
-                        {/* ── Section 3: AI Reasoning ── */}
+                        {/* â”€â”€ Section 3: AI Reasoning â”€â”€ */}
                         {(ragData.reasoning || (ragData.key_findings && ragData.key_findings.length > 0)) && (
                           <div className="rounded-xl border bg-card p-5">
                             <div className="flex items-center gap-2 mb-3">
@@ -1009,7 +1009,7 @@ const AdminClaimReview = () => {
                                       </div>
                                       <div className="h-2 rounded-full bg-muted overflow-hidden">
                                         <div
-                                          className={`h-full rounded-full transition-all ${overLimit ? 'bg-red-500' : pct > 80 ? 'bg-amber-500' : 'bg-green-500'}`}
+                                          className={`h-full rounded-full transition-all ${overLimit ? 'bg-red-500' : pct > 80 ? 'bg-emerald-500' : 'bg-green-500'}`}
                                           style={{ width: `${pct}%` }}
                                         />
                                       </div>
@@ -1024,9 +1024,9 @@ const AdminClaimReview = () => {
                           </div>
                         )}
 
-                        {/* ── Section 4: Recommendation ── */}
+                        {/* â”€â”€ Section 4: Recommendation â”€â”€ */}
                         {ragData.recommendation && (
-                          <div className={`rounded-xl border p-5 ${isLikelyCovered ? 'bg-green-50 border-green-200' : isRequiresReview ? 'bg-amber-50 border-amber-200' : 'bg-red-50 border-red-200'}`}>
+                          <div className={`rounded-xl border p-5 ${isLikelyCovered ? 'bg-green-50 border-green-200' : isRequiresReview ? 'bg-emerald-50 border-emerald-200' : 'bg-red-50 border-red-200'}`}>
                             <div className="flex items-center gap-2 mb-2">
                               <CheckCircle className={`w-4 h-4 ${statusText}`} />
                               <h4 className={`font-semibold text-sm ${statusText}`}>AI Recommendation</h4>
@@ -1051,7 +1051,7 @@ const AdminClaimReview = () => {
                       <p className="text-xs text-muted-foreground mt-1 mb-4">Run the AI pipeline on this claim, or click Re-analyze Coverage to generate semantic policy analysis.</p>
                       <Button variant="outline" size="sm" onClick={rerunRagAnalysis} disabled={ragLoading} className="gap-2">
                         <Sparkles className={`w-3.5 h-3.5 ${ragLoading ? 'animate-spin' : ''}`} />
-                        {ragLoading ? "Analyzing…" : "Run Coverage Analysis"}
+                        {ragLoading ? "Analyzingâ€¦" : "Run Coverage Analysis"}
                       </Button>
                     </div>
                   )}

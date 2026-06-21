@@ -78,7 +78,7 @@ const ClaimHistory = () => {
       case "approved":
         return <CheckCircle className="w-5 h-5 text-green-600" />;
       case "pending":
-        return <Clock className="w-5 h-5 text-amber-600" />;
+        return <Clock className="w-5 h-5 text-emerald-600" />;
       case "rejected":
         return <XCircle className="w-5 h-5 text-red-600" />;
       default:
@@ -89,7 +89,7 @@ const ClaimHistory = () => {
   const getStatusBadge = (status: string) => {
     const styles: Record<string, string> = {
       approved: "bg-green-100 text-green-700 hover:bg-green-200",
-      pending: "bg-amber-100 text-amber-700 hover:bg-amber-200",
+      pending: "bg-emerald-100 text-emerald-700 hover:bg-emerald-200",
       rejected: "bg-red-100 text-red-700 hover:bg-red-200",
     };
     return (
@@ -117,7 +117,7 @@ const ClaimHistory = () => {
       );
     }
     return (
-       <Badge variant="outline" className="text-xs bg-amber-50 text-amber-700 border-amber-200 ml-2">
+       <Badge variant="outline" className="text-xs bg-emerald-50 text-emerald-700 border-emerald-200 ml-2">
           <Shield className="w-3 h-3 mr-1" /> Medium Risk
         </Badge>
     );
@@ -125,7 +125,7 @@ const ClaimHistory = () => {
 
   const quickStats = [
     { label: "Approved", value: stats.approved, bgColor: "bg-green-100", textColor: "text-green-600", icon: CheckCircle },
-    { label: "Processing", value: stats.processing, bgColor: "bg-amber-100", textColor: "text-amber-600", icon: Clock },
+    { label: "Processing", value: stats.processing, bgColor: "bg-emerald-100", textColor: "text-emerald-600", icon: Clock },
     { label: "Total Approved", value: `LKR ${stats.totalApproved.toLocaleString()}`, bgColor: "bg-blue-50", textColor: "text-blue-600", icon: FileText },
   ];
 
@@ -185,7 +185,7 @@ const ClaimHistory = () => {
             {claims.map((claim) => (
               <div
                 key={claim.id}
-                className="group flex items-center justify-between p-4 rounded-xl border border-gray-100 hover:border-orange-200 hover:shadow-md bg-white transition-all cursor-pointer"
+                className="group flex items-center justify-between p-4 rounded-xl border border-gray-100 hover:border-teal-200 hover:shadow-md bg-white transition-all cursor-pointer"
                 onClick={() => navigate(`/digital-portal/claim/${claim.id}`)}
               >
                 <div className="flex items-start gap-4">
@@ -198,13 +198,13 @@ const ClaimHistory = () => {
                     </div>
                     <p className="text-sm text-muted-foreground mt-1 flex items-center gap-2">
                       <span className="capitalize font-medium text-gray-700">{claim.claim_type}</span>
-                      <span>•</span>
+                      <span>â€¢</span>
                       {new Date(claim.created_at).toLocaleDateString()}
                     </p>
                     
                     {claim.ai_summary && (
                       <div className="flex items-center gap-1.5 mt-2 text-xs text-muted-foreground bg-gray-50 px-2 py-1 rounded w-fit">
-                        <Brain className="w-3 h-3 text-orange-500" />
+                        <Brain className="w-3 h-3 text-teal-500" />
                         <span className="line-clamp-1 max-w-[250px]">{claim.ai_summary}</span>
                       </div>
                     )}
@@ -218,7 +218,7 @@ const ClaimHistory = () => {
                     </p>
                     <p className="text-xs text-muted-foreground">Claimed</p>
                   </div>
-                  <div className="h-8 w-8 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-orange-50 group-hover:text-orange-600 transition-colors">
+                  <div className="h-8 w-8 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-teal-50 group-hover:text-teal-600 transition-colors">
                     <ChevronRight className="w-5 h-5" />
                   </div>
                 </div>

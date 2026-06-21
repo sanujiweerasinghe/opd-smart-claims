@@ -286,7 +286,7 @@ const NewClaimWizard = ({ onComplete }: NewClaimWizardProps) => {
           className={cn(
             "w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6",
             decision === "auto_approve" ? "bg-green-500" :
-            decision === "reject" ? "bg-red-500" : "bg-amber-500"
+            decision === "reject" ? "bg-red-500" : "bg-emerald-500"
           )}
         >
           {decision === "auto_approve" ? (
@@ -330,7 +330,7 @@ const NewClaimWizard = ({ onComplete }: NewClaimWizardProps) => {
               <p className={cn(
                 "text-2xl font-bold",
                 fraudScore >= 0.7 ? "text-red-500" :
-                fraudScore >= 0.4 ? "text-amber-500" : "text-green-500"
+                fraudScore >= 0.4 ? "text-emerald-500" : "text-green-500"
               )}>
                 {fraudScore >= 0.7 ? "High" : fraudScore >= 0.4 ? "Medium" : "Low"}
               </p>
@@ -350,14 +350,14 @@ const NewClaimWizard = ({ onComplete }: NewClaimWizardProps) => {
           )}
         </div>
 
-        {/* Retry option for rejected / manual review — max 3 attempts */}
+        {/* Retry option for rejected / manual review â€” max 3 attempts */}
         {decision !== 'auto_approve' && (aiResults?.pipeline_results?.attempts_remaining ?? 0) > 0 && (
-          <div className="mb-4 p-3 rounded-lg bg-amber-50 border border-amber-200">
-            <p className="text-xs text-amber-700 mb-2">
+          <div className="mb-4 p-3 rounded-lg bg-emerald-50 border border-emerald-200">
+            <p className="text-xs text-emerald-700 mb-2">
               You can re-upload your documents up to{' '}
               <strong>{aiResults?.pipeline_results?.attempts_remaining}</strong> more time(s).
             </p>
-            <Button variant="outline" size="sm" onClick={handleResubmit} className="w-full text-amber-700 border-amber-400 hover:bg-amber-100">
+            <Button variant="outline" size="sm" onClick={handleResubmit} className="w-full text-emerald-700 border-emerald-400 hover:bg-emerald-100">
               Re-upload Documents &amp; Retry
             </Button>
           </div>

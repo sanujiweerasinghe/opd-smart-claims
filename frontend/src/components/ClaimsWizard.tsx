@@ -92,7 +92,7 @@ const ClaimsWizard = ({ onBack }: ClaimsWizardProps) => {
   return (
     <div className="min-h-screen bg-background">
       {/* Navbar */}
-      <nav className="bg-gradient-to-r from-orange-500 to-amber-400 shadow-lg">
+      <nav className="bg-gradient-to-r from-teal-500 to-emerald-400 shadow-lg">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3 cursor-pointer" onClick={onBack}>
             <div className="w-10 h-10 rounded-lg bg-primary-foreground/20 flex items-center justify-center">

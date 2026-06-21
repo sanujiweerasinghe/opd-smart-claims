@@ -58,9 +58,9 @@ const AuthPage = () => {
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Gradient Background */}
-      {/* <div className="absolute inset-0 bg-gradient-to-br from-green-100 via-background to-orange-100" /> */}
+      {/* <div className="absolute inset-0 bg-gradient-to-br from-green-100 via-background to-teal-100" /> */}
       {/* <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-br from-green-200/50 to-transparent" /> */}
-      <div className="absolute bottom-0 right-0 w-full h-full bg-orange-200/50" />
+      <div className="absolute bottom-0 right-0 w-full h-full bg-teal-200/50" />
 
       {/* Top Bar */}
       <div className="absolute top-4 right-4 z-10">
@@ -130,7 +130,7 @@ const AuthPage = () => {
 
               <Button 
                 type="submit" 
-                className="w-full h-12 rounded-xl text-base font-semibold bg-gradient-to-r from-orange-500 to-amber-400 hover:from-orange-600 hover:to-amber-500 text-white shadow-lg" 
+                className="w-full h-12 rounded-xl text-base font-semibold bg-gradient-to-r from-teal-500 to-emerald-400 hover:from-teal-600 hover:to-emerald-500 text-white shadow-lg" 
                 disabled={isLoading}
               >
                 {isLoading ? "Signing in..." : "Sign In"}

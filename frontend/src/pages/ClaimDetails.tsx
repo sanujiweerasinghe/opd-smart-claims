@@ -62,7 +62,7 @@ const ClaimDetails = () => {
 
   const getStatusBadge = (status: string) => {
     const styles: Record<string, string> = {
-      pending: "bg-amber-100 text-amber-700 hover:bg-amber-100",
+      pending: "bg-emerald-100 text-emerald-700 hover:bg-emerald-100",
       approved: "bg-green-100 text-green-700 hover:bg-green-100",
       rejected: "bg-red-500 text-white hover:bg-red-600",
     };
@@ -76,7 +76,7 @@ const ClaimDetails = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-orange-500" />
+        <Loader2 className="w-8 h-8 animate-spin text-teal-500" />
       </div>
     );
   }
@@ -185,10 +185,10 @@ const ClaimDetails = () => {
                   <p className="text-gray-400 text-center py-4">No documents found.</p>
                 ) : (
                   claim.documents.map((doc, i) => (
-                    <div key={i} className="flex items-center justify-between p-3 rounded-lg border border-gray-100 hover:border-orange-200 bg-white transition-all">
+                    <div key={i} className="flex items-center justify-between p-3 rounded-lg border border-gray-100 hover:border-teal-200 bg-white transition-all">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-orange-50 flex items-center justify-center">
-                          <FileText className="w-5 h-5 text-orange-500" />
+                        <div className="w-10 h-10 rounded-lg bg-teal-50 flex items-center justify-center">
+                          <FileText className="w-5 h-5 text-teal-500" />
                         </div>
                         <p className="font-medium text-gray-700 text-sm">{doc.name}</p>
                       </div>
@@ -204,7 +204,7 @@ const ClaimDetails = () => {
                           variant="ghost" 
                           size="sm" 
                           onClick={() => window.open(doc.url, '_blank')}
-                          className="text-gray-500 hover:text-orange-600"
+                          className="text-gray-500 hover:text-teal-600"
                         >
                           View
                         </Button>
@@ -221,7 +221,7 @@ const ClaimDetails = () => {
                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="bg-gray-50 p-4 rounded-xl text-center">
                       <p className={cn("text-2xl font-bold", 
-                          validationScore >= 80 ? "text-green-600" : validationScore >= 50 ? "text-amber-500" : "text-red-600"
+                          validationScore >= 80 ? "text-green-600" : validationScore >= 50 ? "text-emerald-500" : "text-red-600"
                       )}>{validationScore}%</p>
                       <p className="text-xs text-gray-500 uppercase mt-1">Overall Score</p>
                   </div>
@@ -233,7 +233,7 @@ const ClaimDetails = () => {
                   </div>
                   <div className="bg-gray-50 p-4 rounded-xl text-center">
                       <p className={cn("text-2xl font-bold capitalize", 
-                          claim.risk_level === 'High' ? "text-red-600" : claim.risk_level === 'Medium' ? "text-amber-500" : "text-green-600"
+                          claim.risk_level === 'High' ? "text-red-600" : claim.risk_level === 'Medium' ? "text-emerald-500" : "text-green-600"
                       )}>
                           {claim.risk_level || (validationScore < 50 ? "High" : validationScore < 80 ? "Medium" : "Low")}
                       </p>
@@ -276,9 +276,9 @@ const ClaimDetails = () => {
               
               <div className="mb-6">
                   <div className="flex items-center gap-2 text-gray-500 text-xs uppercase font-bold mb-1">
-                    <span className="text-orange-500 text-base">$</span> Claimed Amount
+                    <span className="text-teal-500 text-base">$</span> Claimed Amount
                   </div>
-                  <p className="text-3xl font-bold text-orange-600">{formatCurrency(claim.claim_amount)}</p>
+                  <p className="text-3xl font-bold text-teal-600">{formatCurrency(claim.claim_amount)}</p>
               </div>
 
               {/* Approved Amount Logic */}
@@ -319,8 +319,8 @@ const ClaimDetails = () => {
                 
                 {/* Step 1: Submitted */}
                 <div className="relative flex gap-4">
-                    <div className="w-6 h-6 rounded-full bg-orange-100 flex items-center justify-center shrink-0 z-10">
-                        <div className="w-2 h-2 rounded-full bg-orange-500"></div>
+                    <div className="w-6 h-6 rounded-full bg-teal-100 flex items-center justify-center shrink-0 z-10">
+                        <div className="w-2 h-2 rounded-full bg-teal-500"></div>
                     </div>
                     <div>
                         <p className="text-sm font-bold text-gray-900">Claim Submitted</p>
