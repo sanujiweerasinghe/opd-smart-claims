@@ -213,7 +213,7 @@ export const translations = {
   },
   si: {
     // Navbar & Common
-    logoMain: "ජනශක්ති",
+    logoMain: "OPD",
     logoSub: "ස්මාර්ට් හිමිකම් පද්ධතිය",
     logout: "පිටවීම",
 
@@ -241,7 +241,7 @@ export const translations = {
     customerLoginSubtitle: "ඔබගේ රක්ෂණ හිමිකම් වෙත ප්‍රවේශ වන්න",
 
     // Hero Section
-    heroTitle: "ජනශක්ති ස්මාර්ට් හිමිකම්",
+    heroTitle: "OPD ස්මාර්ට් හිමිකම්",
     heroSub: "AI බලයෙන් ලේඛන සත්‍යාපනය සමඟ ඔබගේ හිමිකම් ඉදිරිපත් කර නිරීක්ෂණය කරන්න. වේගවත්, ආරක්ෂිත සහ සරල.",
     btnSubmitClaim: "නව හිමිකම් ඉදිරිපත් කරන්න",
     btnDigitalPortal: "ඩිජිටල් පෝර්ටලය",
@@ -280,7 +280,7 @@ export const translations = {
     linkTrackStatus: "හිමිකම් තත්ත්වය නිරීක්ෂණය කරන්න",
     linkDigitalPortal: "ඩිජිටල් පෝර්ටලය",
     contactUs: "අප අමතන්න",
-    copyright: "© 2025 ජනශක්ති ඉන්ෂුවරන්ස් පීඑල්සී. සියලු හිමිකම් ඇවිරිණි.",
+    copyright: "© 2025 OPD ස්මාර්ට් හිමිකම්. සියලු හිමිකම් ඇවිරිණි.",
 
     // Branch Portal
     customerPortalBranch: "පාරිභෝගික පෝර්ටලය - ශාඛාව",
@@ -421,7 +421,7 @@ export const translations = {
   },
   ta: {
     // Navbar & Common
-    logoMain: "ஜனசக்தி",
+    logoMain: "OPD",
     logoSub: "ஸ்மார்ட் உரிமைகோரல் அமைப்பு",
     logout: "வெளியேறு",
 
@@ -449,7 +449,7 @@ export const translations = {
     customerLoginSubtitle: "உங்கள் காப்பீட்டு உரிமைகோரல்களை அணுகவும்",
 
     // Hero Section
-    heroTitle: "ஜனசக்தி ஸ்மார்ட் உரிமைகோரல்கள்",
+    heroTitle: "OPD ஸ்மார்ட் உரிமைகோரல்கள்",
     heroSub: "AI ஆல் இயங்கும் ஆவண சரிபார்ப்புடன் உங்கள் உரிமைகோரல்களைச் சமர்ப்பித்து கண்காணிக்கவும். வேகமான, பாதுகாப்பான, எளிமையான.",
     btnSubmitClaim: "புதிய உரிமைகோரலைச் சமர்ப்பிக்கவும்",
     btnDigitalPortal: "டிஜிட்டல் போர்டல்",
@@ -488,7 +488,7 @@ export const translations = {
     linkTrackStatus: "கோரிக்கை நிலையைக் கண்காணிக்கவும்",
     linkDigitalPortal: "டிஜிட்டல் போர்டல்",
     contactUs: "எங்களைத் தொடர்பு கொள்ளவும்",
-    copyright: "© 2025 ஜனசக்தி இன்சூரன்ஸ் பிஎல்சி. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
+    copyright: "© 2025 OPD ஸ்மார்ட் உரிமைகோரல்கள். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
 
     // Branch Portal
     customerPortalBranch: "வாடிக்கையாளர் போர்டல் - கிளை",
