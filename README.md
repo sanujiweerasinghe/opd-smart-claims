@@ -8,7 +8,6 @@
 [![React](https://img.shields.io/badge/React-TypeScript-61DAFB?style=for-the-badge&logo=react&logoColor=black)](/)
 [![Google Gemini](https://img.shields.io/badge/Google-Gemini_AI-4285F4?style=for-the-badge&logo=google&logoColor=white)](/)
 [![OpenCV](https://img.shields.io/badge/OpenCV-Image_Processing-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)](/)
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](/)
 [![Status](https://img.shields.io/badge/Status-Prototype-orange?style=for-the-badge)](/)
 
 A full-stack, multi-portal web application for **end-to-end insurance claim submission**, AI-powered document analysis, OCR verification, fraud detection, and intelligent auto-approval — built for Health Insurance Provider.
