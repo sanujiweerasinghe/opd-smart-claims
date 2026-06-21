@@ -10,6 +10,10 @@
 [![OpenCV](https://img.shields.io/badge/OpenCV-Image_Processing-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)](/)
 [![Status](https://img.shields.io/badge/Status-Prototype-orange?style=for-the-badge)](/)
 
+<br>
+<img src="images/1.png" alt="OPD Smart Claims System Banner" width="800"/>
+<br><br>
+
 A full-stack, multi-portal web application for **end-to-end insurance claim submission**, AI-powered document analysis, OCR verification, fraud detection, and intelligent auto-approval — built for Health Insurance Provider.
 
 </div>
@@ -19,7 +23,7 @@ A full-stack, multi-portal web application for **end-to-end insurance claim subm
 ## 📋 Table of Contents
 
 - [Overview](#-overview)
-
+- [Screenshots](#%EF%B8%8F-screenshots)
 - [Key Features](#-key-features)
 - [AI Validation Pipeline](#-ai-validation-pipeline)
 - [Tech Stack](#-tech-stack)
@@ -36,6 +40,72 @@ OPD Smart Claims is an intelligent claims management system that automates the e
 
 ---
 
+## 🖼️ Screenshots
+
+### Landing Page - Portal Selection
+![Landing Page](images/1.png)
+
+---
+
+### Branch Portal - Policy Verification
+![Policy Verification](images/2.png)
+
+---
+
+### Branch Portal - Document Upload
+![Document Upload](images/4.png)
+
+---
+
+### Digital Portal - Submit New Claim
+![Submit Claim](images/8.png)
+
+---
+
+### Digital Portal - Claim History Dashboard
+![Claim History](images/7.png)
+
+---
+
+### Digital Portal - Claim Submitted Successfully
+![Claim Submitted](images/5.png)
+
+---
+
+### Admin Dashboard - Claims Overview
+![Admin Dashboard](images/11.png)
+
+---
+
+### Admin - AI Analysis Overview
+![AI Analysis](images/12.png)
+
+---
+
+### Admin - OCR Document Verification
+![Document Verification](images/13.png)
+
+---
+
+### Admin - Policy Verification
+![Policy Check](images/14.png)
+
+---
+
+### Admin - Fraud Analysis Report
+![Fraud Analysis](images/15.png)
+
+---
+
+### Admin - Document Cross-Validation
+![Cross Validation](images/16.png)
+
+---
+
+### Admin - RAG Coverage Analysis
+![RAG Analysis](images/17.png)
+
+---
 
 ## 🚀 Key Features
 
