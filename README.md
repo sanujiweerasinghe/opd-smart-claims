@@ -274,16 +274,7 @@ opd-smart-claims-system/
 └── images/                     # Project screenshots
 ```
 
----
 
-## 👤 Author
-
-> Developed as a project — BSc (Hons) in Data Science, University of Peradeniya, Sri Lanka (2025)
-
-**Sanuji Weerasinghe**
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sanuji-weerasinghe-b91b9a24b)
-[![Email](https://img.shields.io/badge/Email-Contact-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:sanujiweerasinghe@gmail.com)
 
 ---
 
